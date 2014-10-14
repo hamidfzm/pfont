@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<uwsgi id="pfont">
+<app mountpoint="/"></app>
+<module>deploy:app</module>
+<socket>/tmp/uwsgi.sock</socket>
+<processes>4</processes>
+<chdir>/var/www/pfont</chdir>
+<pidfile>/tmp/pfont.pid</pidfile>
+<daemonize>/var/www/cv/pfont.log</daemonize>
+<stats>/tmp/pfont.stats</stats>
+<uid>uwsgi</uid>
+<gid>www-data</gid>
+<chmod-socket>775</chmod-socket>
+</uwsgi>

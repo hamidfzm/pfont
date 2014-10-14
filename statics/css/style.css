@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Sego';
+  src: url('../fonts/segoeui.eot?#') format('eot'),  /* IE6–8 */
+       url('../fonts/segoeui.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../fonts/segoeui.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+body{
+    font-family: Sego, Tahoma, Helvetica, sans-serif;
+    direction: rtl;
+    padding-top: 100px;
+}
+
+.carousel-indicators li {
+  width: 16px;
+  height: 16px;
+  margin: 1px;
+  background-color: #8a8c8f;
+  border-radius: 16px;
+  border: 0;
+}
+.carousel-indicators .active {
+  width: 16px;
+  height: 16px;
+  background-color: #8dc63f;
+}
