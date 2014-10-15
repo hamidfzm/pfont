@@ -29,5 +29,57 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="summery" style="padding: 20px">
+        <script>
+            $(document).ready(function () {
+                $('.tab').click(function () {
+                    $('.tab').children('.panel-heading').removeClass('active');
+                    $(this).children('.panel-heading').addClass('active');
+
+                });
+
+            });
+
+        </script>
+        <div class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 ">
+            <div class="col-md-6 no-padding col-md-push-6">
+                <div class="panel panel-default">
+                    <a href=".home" data-toggle="tab" class="tab">
+                        <div class="panel-heading active right text-center">
+                            <h3>قلم چیست</h3>
+                        </div>
+                    </a>
+
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active home" id="home">
+                                <img src="{{ url_for('static', filename='image/why.png') }}">
+                            </div>
+                            <div class="tab-pane fade svn" id="svn">svnfddf</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 no-padding col-md-pull-6">
+                <div class="panel panel-default">
+                    <a href=".svn" data-toggle="tab" class="tab">
+                        <div class="panel-heading left text-center">
+                            <h3>ویژگی های قلم</h3>
+                        </div>
+                    </a>
+
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active home" id="home">
+                                <p>آقای جمشید مشایخی لقب سعدی سینمای ایران را به زنده‌یاد حاتمی داد. چندی پیش هم مقاله‌ای خواندم كه وی را با حافظ مقایسه كرده بودند. من هم حاتمی را با فردوسی‌ قیاس كردم. این نشان دهنده پویایی این شخص است. هرچه زمان بر او می‌گذرد لایه‌های دیگر تفكراتش آشكار می‌شود. نكته دیگر اینكه نباید شاهنامه را فقط در ژانر حماسه محدود كرد. در شاهنامه جنبه‌‌های دیگری هم وجود دارد. اگر تاریخ را در نظر بگیریم خواهیم دید كه حاتمی همان برخوردی را با تاریخ و شخصیت‌های تاریخی داشته كه فردوسی. حاتمی هم مانند فردوسی برخی شخصیت‌های آثارش را از دل تاریخ بیرون كشیده. من در كتابم ‌تمثیل پنیر پیتزا را به كار برده‌ام. حاتمی شخصیت‌های تاریخی را می‌كشد و كِش می‌دهد تا آنها را دراماتیزه كند و عنصر نمایش را به آنها اضافه كند. و صرفاً راوی تاریخ نباشد. من از جهت برخورد مشابهی كه فردوسی و حاتمی با تاریخ و شخصیت‌های تاریخی داشته‌اند، آنها را با هم مقایسه كرده‌ام. ممكن است چند سال دیگر، یك نفر حاتمی را با شاعر دیگری مقایسه كند. این آدم مثل دانه‌ای است كه دارد رشد می‌كند و هرچه زمان بر او بگذرد، لایه‌های دیگری از وجودش كشف می‌شود.</p>
+                            </div>
+                            <div class="tab-pane fade svn" id="svn">svn</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
