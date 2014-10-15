@@ -50,8 +50,13 @@ body {
     border: none;
 }
 
+.panel a {
+    color: #58595b;
+    text-decoration: none;
+}
+
 .panel-body {
-    padding: 15px;
+    padding: 25px;
 }
 
 .panel-default > .panel-heading {
@@ -83,9 +88,15 @@ body {
     margin-right: -2px;
 }
 
-.panel-body p {
+.panel-body p, h1 {
     color: #808285;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
+}
+
+.panel-body h1 {
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 62px;
 }

@@ -2,7 +2,7 @@
 
 {% block body %}
     <section id="gallery" style="background-color: #252726">
-        <div class="container">
+        <div class="container-fluid">
             <div id="carousel-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -54,8 +54,9 @@
 
                     <div class="panel-body">
                         <div class="tab-content">
-                            <div class="tab-pane fade in active home" id="home">
+                            <div class="tab-pane fade in active text-center home" id="home">
                                 <img src="{{ url_for('static', filename='image/why.png') }}">
+                                <h1>قلم (فونت) چیست؟و یک قلم فارسی چــــــه ویژگی دارد؟</h1>
                             </div>
                             <div class="tab-pane fade svn" id="svn">svnfddf</div>
                         </div>
