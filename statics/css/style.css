@@ -1,26 +1,102 @@
 @font-face {
-  font-family: 'Sego';
-  src: url('../fonts/segoeui.eot?#') format('eot'),  /* IE6–8 */
-       url('../fonts/segoeui.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-       url('../fonts/segoeui.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+    font-family: 'Sego';
+    src: url('../fonts/segoeui.eot?#') format('eot'), /* IE6–8 */ url('../fonts/segoeui.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/segoeui.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
 }
 
-body{
+body {
     font-family: Sego, Tahoma, Helvetica, sans-serif;
     direction: rtl;
     padding-top: 100px;
 }
 
-.carousel-indicators li {
-  width: 16px;
-  height: 16px;
-  margin: 1px;
-  background-color: #8a8c8f;
-  border-radius: 16px;
-  border: 0;
+.no-padding {
+    padding: 0;
 }
+
+.carousel-indicators li {
+    width: 16px;
+    height: 16px;
+    margin: 1px;
+    background-color: #8a8c8f;
+    border-radius: 16px;
+    border: 0;
+}
+
 .carousel-indicators .active {
-  width: 16px;
-  height: 16px;
-  background-color: #8dc63f;
+    width: 16px;
+    height: 16px;
+    background-color: #8dc63f;
+}
+
+@media (max-width: 767px) {
+    .carousel-indicators li {
+        width: 12px;
+        height: 12px;
+        margin: 1px;
+        background-color: #8a8c8f;
+        border-radius: 12px;
+        border: 0;
+    }
+
+    .carousel-indicators .active {
+        width: 10px;
+        height: 12px;
+        background-color: #8dc63f;
+    }
+}
+
+.panel {
+    border-radius: 0;
+    border: none;
+}
+
+.panel a {
+    color: #58595b;
+    text-decoration: none;
+}
+
+.panel-body {
+    padding: 25px;
+}
+
+.panel-default > .panel-heading {
+    border-radius: 0;
+    border-color: #ddd;
+}
+
+.panel-heading {
+    z-index: -1;
+    border: 2px solid #c8cdce;
+    -webkit-transition: all ease-in-out 0.6s;
+    -moz-transition: all ease-in-out 0.6s;
+    -ms-transition: all ease-in-out 0.6s;
+    -o-transition: all ease-in-out 0.6s;
+    transition: all ease-in-out 0.6s;
+}
+
+.panel-heading.active {
+    z-index: 9999;
+    position: relative;
+    border: 2px solid #8dc63f;
+}
+
+.panel-heading.active.right {
+    margin-left: -2px;
+}
+
+.panel-heading.active.left {
+    margin-right: -2px;
+}
+
+.panel-body p, h1 {
+    color: #808285;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.panel-body h1 {
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 62px;
 }
