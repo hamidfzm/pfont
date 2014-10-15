@@ -14,35 +14,53 @@ body {
 }
 
 .carousel-indicators li {
-    width: 16px;
-    height: 16px;
-    margin: 1px;
+    /*width: 16px;*/
+    /*height: 16px;*/
+    /*margin: 1px;*/
     background-color: #8a8c8f;
     border-radius: 16px;
     border: 0;
 }
 
 .carousel-indicators .active {
-    width: 16px;
-    height: 16px;
+    /*width: 16px;*/
+    /*height: 16px;*/
     background-color: #8dc63f;
+}
+
+/* center bootstrap carousel img */
+.carousel-inner > .item > img {
+    margin: 0 auto;
 }
 
 @media (max-width: 767px) {
     .carousel-indicators li {
-        width: 12px;
-        height: 12px;
-        margin: 1px;
+        /*width: 12px;*/
+        /*height: 12px;*/
+        /*margin: 1px;*/
         background-color: #8a8c8f;
         border-radius: 12px;
         border: 0;
     }
 
     .carousel-indicators .active {
-        width: 10px;
-        height: 12px;
+        /*width: 10px;*/
+        /*height: 12px;*/
         background-color: #8dc63f;
     }
+}
+
+@media (min-width: 768px) {
+    .damon {
+        background-color: red;
+    }
+}
+
+.damon {
+    background-color: #000000;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 
 .panel {
@@ -75,7 +93,7 @@ body {
 }
 
 .panel-heading.active {
-    z-index: 9999;
+    z-index: 2;
     position: relative;
     border: 2px solid #8dc63f;
 }
@@ -88,15 +106,49 @@ body {
     margin-right: -2px;
 }
 
-.panel-body p, h1 {
+#summery p, h1 {
     color: #808285;
     font-size: 20px;
     font-weight: 400;
-    line-height: 30px;
 }
 
-.panel-body h1 {
+#summery h1 {
     font-size: 45px;
     font-weight: 600;
     line-height: 62px;
+}
+
+#interview h1 {
+    color: #8dc63f;
+    font-size: 45px; /* Approximation due to font substitution */
+    font-weight: 600;
+    line-height: 47px; /* Approximation due to font substitution */
+}
+
+#interview h3 {
+    color: #939598;
+    font-size: 22px; /* Approximation due to font substitution */
+    font-weight: 600;
+    line-height: 47px; /* Approximation due to font substitution */
+}
+
+.damon p {
+    color: #f2f2f3;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.btn-line {
+    color: #939598;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 30px;
+    padding: 5px 50px 5px 50px;
+    border: 2px solid #8dc63f;
+    border-radius: 8px;
+    background-color: transparent;
+}
+
+.btn-line:hover, .btn-line:focus{
+    background-color: #8dc63f;
 }
