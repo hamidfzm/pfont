@@ -50,19 +50,6 @@ body {
     }
 }
 
-@media (min-width: 768px) {
-    .damon {
-        background-color: red;
-    }
-}
-
-.damon {
-    background-color: #000000;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom right;
-}
-
 .panel {
     border-radius: 0;
     border: none;
@@ -130,6 +117,14 @@ body {
     font-size: 22px; /* Approximation due to font substitution */
     font-weight: 600;
     line-height: 47px; /* Approximation due to font substitution */
+}
+
+.damon {
+    background-color: #000000;
+    height: 800px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 
 .damon p {
