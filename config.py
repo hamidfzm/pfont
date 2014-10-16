@@ -59,7 +59,7 @@ class DevelopmentConfig(Config):
     MONGODB_SETTINGS = {'DB': 'pfont',
                         'HOST': '127.0.0.1',
                         'PORT': 27017}
-    MINIFY_PAGE = True
+    MINIFY_PAGE = False
 
 
 class ProductionConfig(Config):
