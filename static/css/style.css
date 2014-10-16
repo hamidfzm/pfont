@@ -130,6 +130,7 @@ input[type=number]::-webkit-inner-spin-button {
     font-weight: 400;
     padding: 5px 50px 5px 50px;
     border-radius: 8px;
+    border: 2px solid #8dc63f;
     background-color: transparent;
 }
 
@@ -143,10 +144,12 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .btn-line:hover, .btn-line:focus {
+    color: #ffffff;
     background-color: #8dc63f;
 }
 
 .form-input {
+    border-color: #ffffff;
     color: #ffffff;
     background-color: transparent;
     border-radius: 8px;
@@ -162,18 +165,22 @@ input[type=number]::-webkit-inner-spin-button {
 
 .form-input::-webkit-input-placeholder {
     direction: rtl;
+    color: #ffffff;
 }
 
 .form-input:-moz-placeholder {
     direction: rtl;
+    color: #ffffff;
 }
 
 .form-input::-moz-placeholder {
     direction: rtl;
+    color: #ffffff;
 }
 
 .form-input:-ms-input-placeholder {
     direction: rtl;
+    color: #ffffff;
 }
 
 .arrow_box {
@@ -291,5 +298,6 @@ section h1 {
 }
 
 .social:hover, .social:focus {
+    background-color: #000000;
     color: #8dc63f;
 }
