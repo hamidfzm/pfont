@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <section id="budget" class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 top-bottom-padding text-center">
+    <section id="budget" class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 col-sm-12 top-bottom-padding text-center">
         <h1>وضعیت بودجه و حمایت‌های شده</h1>
 
         <div class="row">
@@ -112,19 +112,47 @@
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <h3>123</h3>
+
                 <p>تعداد حامیان (نفر)</p>
             </div>
             <div class="col-lg-4 col-md-4">
                 <h3>5000</h3>
+
                 <p>میزان حمایت (ریال)</p>
             </div>
             <div class="col-lg-4 col-md-4">
                 <h3>56</h3>
+
                 <p>مدت زمان (روز)</p>
             </div>
         </div>
 
 
+    </section>
+
+    <section id="support" class="col-lg-12 col-md-12 col-sm-12 top-bottom-padding text-center" style="background-image: url('{{ url_for('static', filename='image/support.jpg') }}');">
+        <h1 class="top-bottom-padding">حمایت مالی از کمپین</h1>
+
+        <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <form action="#" method="post">
+                <div class="col-lg-12 no-padding margin-top">
+                    <input class="form-input btn-block" type="email" placeholder="پست الکترونیک">
+                </div>
+
+                <div class="col-lg-12 col-md-12 no-padding">
+                    <div class="col-lg-6 col-md-6 no-padding margin-top padding-right">
+                        <input class="form-input btn-block" type="number" placeholder="مبلغ به تومان">
+                    </div>
+                    <div class="col-lg-6 col-md-6 no-padding margin-top padding-left">
+                        <input class="form-input btn-block" type="text" placeholder="نام پرداخت کننده">
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 no-padding margin-top">
+                    <button type="submit" class="btn btn-green btn-block">ارسال به درگاه</button>
+                </div>
+            </form>
+        </div>
     </section>
 
 {% endblock %}
