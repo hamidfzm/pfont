@@ -10,25 +10,27 @@
 
     <title>{{ g.title }}</title>
 
-    <!-- Bootstrap -->
+    {# Bootstrap #}
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/navbar.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/hover.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+
     <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='image/favico.png') }}"/>
     {% block css %}
     {% endblock %}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries #}
+    {# WARNING: Respond.js doesn't work if you view the page via file:// #}
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    {# jQuery (necessary for Bootstrap's JavaScript plugins) #}
 {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>#}
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    {# Include all compiled plugins (below), or include individual files as needed #}
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
     <script>
@@ -102,7 +104,7 @@
                 </div>
                 <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
                     <ul class="nav navbar-nav">
-                        <li><a class="top-menu-item" href="#">تماس با ما</a></li>
+                        <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
                         <li><a class="top-menu-item" href="#supporters">حمایت کنندگان</a></li>
                         <li><a class="top-menu-item" href="#support">حمایت</a></li>
                     </ul>
