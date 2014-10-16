@@ -221,7 +221,7 @@ input[type=number]::-webkit-inner-spin-button {
     font-weight: 400;
 }
 
-#summery h1, #budget h1, #support h1 {
+section h1{
     font-size: 45px;
     font-weight: 600;
 }
@@ -266,4 +266,13 @@ input[type=number]::-webkit-inner-spin-button {
     color: #f2f2f3;
     font-size: 20px;
     font-weight: 400;
+}
+
+.avatar {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #939598;
+    margin: 3px;
+    width: 70px;
+    height: 70px;
 }
