@@ -46,7 +46,7 @@ def create_app(config_name):
     # from app.auth.models import User, GuestUser
 
     app.template_folder = '../templates'
-    app.static_folder = '../statics'
+    app.static_folder = '../static'
     # app.host = config['HOST']
     #app.port = config['PORT']
 

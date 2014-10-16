@@ -9,8 +9,8 @@ class Config:
     def __init__(self):
         pass
 
-    SECRET_KEY = "_<TCDJ p|fqcj>f%LyLKqmZj57+G-DlC-U^<+C(+rIy_6|nCHn^#zYWoT= 9=j"
-    WTF_CSRF_SECRET_KEY = "0E9B059ED83BCA5F90F1814F2AE014553D4A3F4E3C05F42B178869C879749A29"
+    SECRET_KEY = "sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28="
+    WTF_CSRF_SECRET_KEY = "sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28="
 
     # RECAPTCHA_PUBLIC_KEY = "6LfJT_gSAAAAAHUcp-NtDYguqZGe4kAyqGptNK7q"
     # RECAPTCHA_PRIVATE_KEY = "6LfJT_gSAAAAABL_zPayoW_6uAn-3ZXh9Pf8zHgQ"
@@ -39,10 +39,10 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = 'UTC+03:30'
 
     # SMS Configs
-    SMS_SENDER = '50002010060975'
-    SMS_USERNAME = '6623'
-    SMS_PASSWORD = 'umdxatjnlldg'
-    SMS_SOAP_SERVICE = 'http://panel.bizna.ir/webservice/soap/xml.php?wsdl'
+    SMS_SENDER = ''
+    SMS_USERNAME = ''
+    SMS_PASSWORD = ''
+    SMS_SOAP_SERVICE = ''
 
     @staticmethod
     def init_app(app):
