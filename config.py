@@ -59,6 +59,7 @@ class DevelopmentConfig(Config):
     MONGODB_SETTINGS = {'DB': 'pfont',
                         'HOST': '127.0.0.1',
                         'PORT': 27017}
+    MINIFY_PAGE = True
 
 
 class ProductionConfig(Config):
@@ -69,6 +70,7 @@ class ProductionConfig(Config):
                         # 'PASSWORD': 'my_secret_password',
                         'HOST': '127.0.0.1',
                         'PORT': 27017}
+    MINIFY_PAGE = True
 
 
 config = {'development': DevelopmentConfig,

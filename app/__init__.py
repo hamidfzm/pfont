@@ -1,3 +1,7 @@
+# import python
+from htmlmin.main import minify
+
+# import flask
 from flask import Flask
 # from flask.ext.bootstrap import Bootstrap
 from flask.ext.babel import Babel
@@ -5,6 +9,7 @@ from flask.ext.mail import Mail
 from flask.ext.moment import Moment
 from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
 
+# import project
 from app.utilis.sms import SMS
 from config import config
 
@@ -61,6 +66,24 @@ def create_app(config_name):
     #             g.user = GuestUser()
     #     else:
     #         g.user = GuestUser()
+
+    def response_minify(response):
+            """
+            minify response html to decrease traffic
+            """
+            if response.content_type == u'text/html; charset=utf-8':
+                response.set_data(
+                    minify(response.get_data(as_text=True),
+                           remove_comments=True,
+                           remove_empty_space=True,
+                           remove_all_empty_space=True)
+                )
+
+                return response
+            return response
+
+    if app.config['MINIFY_PAGE']:
+        app.after_request(response_minify)
 
     app.context_processor(tags)
 
