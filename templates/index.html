@@ -31,7 +31,7 @@
         </div>
     </section>
 
-    <section id="summery" class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1" style="padding: 20px">
+    <section id="summery" class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 top-bottom-padding">
         <script>
             $(document).ready(function () {
                 $('.tab').click(function () {
@@ -85,7 +85,7 @@
         </div>
     </section>
 
-    <section id="interview" class="col-lg-12 col-md-12 col-sm-12 damon" style="background-image: url('{{ url_for('static', filename='image/damon.jpg') }}');">
+    <section id="interview" class="col-lg-12 col-md-12 col-sm-12 damon top-bottom-padding" style="background-image: url('{{ url_for('static', filename='image/damon.jpg') }}');">
         <div class="col-lg-6 col-md-6 col-sm-12" style="padding-top: 50px; padding-bottom: 50px">
             <h1>مصاحبه با دامون خان جانزاده</h1>
 
@@ -96,5 +96,35 @@
             <a href="#" class="btn btn-line pull-left">ادامه مطلب</a>
         </div>
     </section>
-    
+
+    <section id="budget" class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 top-bottom-padding text-center">
+        <h1>وضعیت بودجه و حمایت‌های شده</h1>
+
+        <div class="row">
+
+            <div class="col-lg-8 col-lg-offset-2" style="margin-top: 100px">
+                <div class="arrow_box">5000</div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <h3>123</h3>
+                <p>تعداد حامیان (نفر)</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h3>5000</h3>
+                <p>میزان حمایت (ریال)</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <h3>56</h3>
+                <p>مدت زمان (روز)</p>
+            </div>
+        </div>
+
+
+    </section>
+
 {% endblock %}

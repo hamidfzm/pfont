@@ -96,7 +96,6 @@
 
     .nav-bg-color {
        background-color: #ffffff;
-       overflow-x: hidden;
    }
 }
 
@@ -114,6 +113,7 @@
 .nav .active, .nav .active:hover{
     color: #8dc63f;
 }
+
 
 .top-menu-item {
     color: #8c8a8f;
