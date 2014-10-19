@@ -168,6 +168,8 @@ input[type=number]::-webkit-inner-spin-button {
     white-space: nowrap;
     vertical-align: middle;
     direction: ltr;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .form-input:focus {
