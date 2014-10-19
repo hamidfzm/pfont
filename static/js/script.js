@@ -9,10 +9,13 @@ $(document).ready(function () {
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: form.attr('action'),
+            url: form.find('form').attr('action'),
             data: form.serialize(),
             success: function (data) {
-                console.log(data)
+                if (data.status == 2){
+                    form.html(data.form);
+                    console.log(data)
+                }
             }
         });
     });

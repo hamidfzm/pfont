@@ -1,15 +1,29 @@
-<form action="{{ url_for('main.donate') }}" method="post" id="DonatorForm">
+{% macro show_errors(field) %}
+    {% if field.errors %}
+        <div>
+            {% for error in field.errors %}
+                {{ error }}{% if not loop.last %},{% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+<form action="{{ url_for('main.donate') }}" method="post">
     {{ form.csrf_token }}
     <div class="col-lg-12 no-padding margin-top">
         {{ form.email(class="form-input btn-block", type="email", placeholder="پست الکترونیک") }}
+        {{ show_errors(form.email) }}
     </div>
 
     <div class="col-lg-12 col-md-12 no-padding">
         <div class="col-lg-6 col-md-6 no-padding margin-top padding-right">
             {{ form.amount(class="form-input btn-block", type="number", placeholder="مبلغ به تومان") }}
+            {{ show_errors(form.amount) }}
+
         </div>
         <div class="col-lg-6 col-md-6 no-padding margin-top padding-left">
-            {{ form.amount(class="form-input btn-block", type="text", placeholder="نام پرداخت کننده") }}
+            {{ form.nickname(class="form-input btn-block", type="text", placeholder="نام پرداخت کننده") }}
+            {{ show_errors(form.nickname) }}
         </div>
     </div>
 
