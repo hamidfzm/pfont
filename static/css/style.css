@@ -230,6 +230,8 @@ input[type=number]::-webkit-inner-spin-button {
 .progress-bar {
     float: right;
     background-color: #8dc63f;
+    box-shadow: none;
+    -webkit-box-shadow: none;
 }
 
 #summery p, h1 {

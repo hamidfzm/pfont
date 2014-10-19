@@ -35,7 +35,7 @@
         <script>
             $(document).ready(function () {
                 $('.tab').click(function () {
-                    $('.tab').children('.panel-heading').removeClass('active');
+                    $('.tab').children('.panel-heading.active').removeClass('active');
                     $(this).children('.panel-heading').addClass('active');
 
                 });
