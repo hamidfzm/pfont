@@ -6,4 +6,4 @@ app = create_app('default')
 manager = Manager(app)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5555)
