@@ -31,7 +31,7 @@
         </div>
     </section>
 
-    <section id="summery" class="col-lg-8 col-md-10 col-lg-offset-2 col-md-offset-1 top-bottom-padding">
+    <section id="summery" class="col-lg-12 col-md-12 col-lg-offset-0 col-md-offset-0 col-sm-12" style="padding: 25px">
         <script>
             $(document).ready(function () {
                 $('.tab').click(function () {
@@ -44,36 +44,45 @@
 
         </script>
         <div class="col-md-6 no-padding col-md-push-6">
-            <div class="panel panel-default">
                 <a href=".home" data-toggle="tab" class="tab">
                     <div class="panel-heading active right text-center">
                         <h3>قلم چیست</h3>
                     </div>
                 </a>
+        </div>
+        <div class="col-md-6 no-padding col-md-pull-6">
+                <a href=".svn" data-toggle="tab" class="tab">
+                    <div class="panel-heading left text-center">
+                        <h3>ویژگی های قلم</h3>
+                    </div>
+                </a>
+        </div>
+
+        <div class="col-md-6 no-padding col-md-push-6">
+            <div class="panel panel-default">
 
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active text-center home" id="home">
                             <img src="{{ url_for('static', filename='image/why.png') }}">
 
-                            <h1>قلم (فونت) چیست؟و یک قلم فارسی چــــــه ویژگی دارد؟</h1>
+                            <h1>قلم (فونت) چیست؟</h1>
                         </div>
-                        <div class="tab-pane fade svn" id="svn">svnfddf</div>
+                        <div class="tab-pane fade svn text-center" id="svn">
+                            <img src="{{ url_for('static', filename='image/why.png') }}">
+
+                            <h1>یک قلم فارسی چــــــه ویژگی دارد؟</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 no-padding col-md-pull-6">
             <div class="panel panel-default">
-                <a href=".svn" data-toggle="tab" class="tab">
-                    <div class="panel-heading left text-center">
-                        <h3>ویژگی های قلم</h3>
-                    </div>
-                </a>
 
                 <div class="panel-body">
                     <div class="tab-content">
-                        <div class="tab-pane fade in active home" id="home">
+                        <div class="tab-pane fade in active home justify" id="home">
                             <p>آقای جمشید مشایخی لقب سعدی سینمای ایران را به زنده‌یاد حاتمی داد. چندی پیش هم مقاله‌ای خواندم كه وی را با حافظ مقایسه كرده بودند. من هم حاتمی را با فردوسی‌ قیاس كردم. این نشان دهنده پویایی این شخص است. هرچه زمان بر او می‌گذرد لایه‌های دیگر تفكراتش آشكار می‌شود. نكته دیگر اینكه نباید شاهنامه را فقط در ژانر حماسه محدود كرد. در شاهنامه جنبه‌‌های دیگری هم وجود دارد. اگر تاریخ را در نظر بگیریم خواهیم دید كه حاتمی همان برخوردی را با تاریخ و شخصیت‌های تاریخی داشته كه
                                 فردوسی. حاتمی هم مانند فردوسی برخی شخصیت‌های آثارش را از دل تاریخ بیرون كشیده. من در كتابم ‌تمثیل پنیر پیتزا را به كار برده‌ام. حاتمی شخصیت‌های تاریخی را می‌كشد و كِش می‌دهد تا آنها را دراماتیزه كند و عنصر نمایش را به آنها اضافه كند. و صرفاً راوی تاریخ نباشد. من از جهت برخورد مشابهی كه فردوسی و حاتمی با تاریخ و شخصیت‌های تاریخی داشته‌اند، آنها را با هم مقایسه كرده‌ام. ممكن است چند سال دیگر، یك نفر حاتمی را با شاعر دیگری مقایسه كند. این آدم مثل دانه‌ای است كه
                                 دارد رشد می‌كند و هرچه زمان بر او بگذرد، لایه‌های دیگری از وجودش كشف می‌شود.</p>
@@ -86,7 +95,7 @@
     </section>
 
     <section id="interview" class="col-lg-12 col-md-12 col-sm-12 damon top-bottom-padding" style="background-image: url('{{ url_for('static', filename='image/damon.jpg') }}');">
-        <div class="col-lg-6 col-md-6 col-sm-12" style="padding: 50px 0 50px 50px; text-align: justify; text-justify: inter-word; ">
+        <div class="col-lg-6 col-md-6 col-sm-12 justify">
             <h1>مصاحبه با دامون خان جانزاده</h1>
 
             <h3>| نویسنده | بهداد رحیمی|</h3>
@@ -103,7 +112,7 @@
 
         <div class="row">
 
-            <div class="col-lg-8 col-lg-offset-2" style="margin-top: 100px">
+            <div class="col-lg-8 col-lg-offset-2" style="margin-top: 40px">
                 <div class="arrow_box">5000</div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
@@ -131,7 +140,7 @@
 
     </section>
 
-    <section id="support" class="col-lg-12 col-md-12 col-sm-12 top-bottom-padding text-center" style="background-image: url('{{ url_for('static', filename='image/support.jpg') }}');" style="margin-bottom: 75px">
+    <section id="support" class="col-lg-12 col-md-12 col-sm-12 top-bottom-padding text-center botton-padding" style="background-image: url('{{ url_for('static', filename='image/support.jpg') }}');" style="margin-bottom: 75px">
         <h1 class="top-bottom-padding">حمایت مالی از کمپین</h1>
 
         <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">

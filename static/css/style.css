@@ -30,6 +30,10 @@ input[type=number]::-webkit-inner-spin-button {
     padding-bottom: 25px;
 }
 
+.botton-padding {
+    padding-bottom: 75px;
+}
+
 @media (min-width: 992px) {
     .padding-left {
         padding-left: 10px;
@@ -42,6 +46,11 @@ input[type=number]::-webkit-inner-spin-button {
 
 .margin-top {
     margin-top: 20px;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .carousel-indicators li {
@@ -84,15 +93,16 @@ input[type=number]::-webkit-inner-spin-button {
 .panel {
     border-radius: 0;
     border: none;
+    box-shadow: none;
 }
 
-.panel a {
+.panel a, a.tab {
     color: #58595b;
     text-decoration: none;
 }
 
 .panel-body {
-    padding: 25px;
+    padding: 2px 25px 25px 25px;
 }
 
 .panel-default > .panel-heading {
@@ -101,6 +111,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .panel-heading {
+    padding: 2px;
     z-index: -1;
     border: 2px solid #c8cdce;
     -webkit-transition: all ease-in-out 0.6s;
@@ -187,7 +198,7 @@ input[type=number]::-webkit-inner-spin-button {
     position: relative;
     background: #808285;
     color: #ffffff;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: 400;
     display: inline-block;
     margin-bottom: 35px;
@@ -204,7 +215,6 @@ input[type=number]::-webkit-inner-spin-button {
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-color: rgba(128, 130, 133, 0);
     border-top-color: #808285;
     border-width: 26px;
     margin-left: -26px;
@@ -267,12 +277,19 @@ section h1 {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
+    padding: 25px 0 75px 0;
 }
 
 .damon p {
     color: #f2f2f3;
     font-size: 20px;
     font-weight: 400;
+}
+
+@media (min-width: 992px) {
+    .damon {
+        padding: 50px 0 25px 50px;
+    }
 }
 
 .avatar {
