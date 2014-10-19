@@ -28,57 +28,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     {# jQuery (necessary for Bootstrap's JavaScript plugins) #}
-{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>#}
+    {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>#}
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     {# Include all compiled plugins (below), or include individual files as needed #}
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
-    <script>
-        $(document).ready(function () {
-
-            $(document).on("scroll", onScroll);
-
-            $('.top-menu-item').click(function (e) {
-                var currLink = $(this);
-                var refElement = $(currLink.attr('href'));
-
-                if (!refElement.length) return;
-
-                e.preventDefault();
-                $(document).off("scroll");
-
-
-                $('.top-menu-item.active').removeClass('active');
-
-                $('html, body').stop().animate({
-                    scrollTop: refElement.offset().top - 100
-                }, 1000, 'swing', function () {
-                    $(document).on("scroll", onScroll);
-                });
-
-                currLink.addClass('active');
-            })
-        });
-
-        function onScroll(e) {
-            var scrollPos = $(document).scrollTop();
-            $('.top-menu-item').each(function () {
-                var currLink = $(this);
-                var refElement = $(currLink.attr('href'));
-
-                if (!refElement.length) return;
-
-                var top = refElement.position().top - 100;
-                if (top <= scrollPos && top  + refElement.height() > scrollPos) {
-                    $('.top-menu-item.active').removeClass('active');
-                    currLink.addClass('active');
-                }
-                else {
-                    currLink.removeClass('active');
-                }
-            });
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
     {% block script %}
     {% endblock %}
@@ -86,37 +40,37 @@
 </head>
 <body>
 
-    <section id="navbar">
-        <nav class="navbar navbar-fixed-top" role="navigation">
-            <div class="container" style="height: 100px">
-                <div class="navbar-header">
-                    <img style="background-color: transparent; cursor: pointer"
-                         class="navbar-toggle"
-                         src="{{ url_for('static', filename='image/logo.png') }}"
-                         data-toggle="collapse"
-                         data-target="#navbar-brand-centered">
+<section id="navbar">
+    <nav class="navbar navbar-fixed-top" role="navigation">
+        <div class="container" style="height: 100px">
+            <div class="navbar-header">
+                <img style="background-color: transparent; cursor: pointer"
+                     class="navbar-toggle"
+                     src="{{ url_for('static', filename='image/logo.png') }}"
+                     data-toggle="collapse"
+                     data-target="#navbar-brand-centered">
 
-                    <div class="navbar-brand navbar-brand-centered hidden-xs">
-                        <a class="top-menu-item" href="#gallery">
-                            <img src="{{ url_for('static', filename='image/logo.png') }}">
-                        </a>
-                    </div>
-                </div>
-                <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
-                    <ul class="nav navbar-nav">
-                        <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
-                        <li><a class="top-menu-item" href="#supporters">حمایت کنندگان</a></li>
-                        <li><a class="top-menu-item" href="#support">حمایت</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="top-menu-item" href="#budget">بودجه</a></li>
-                        <li><a class="top-menu-item" href="#interview">مصاحبه</a></li>
-                        <li><a class="top-menu-item" href="#summery" data-targ>قلم چیست</a></li>
-                    </ul>
+                <div class="navbar-brand navbar-brand-centered hidden-xs">
+                    <a class="top-menu-item" href="#gallery">
+                        <img src="{{ url_for('static', filename='image/logo.png') }}">
+                    </a>
                 </div>
             </div>
-        </nav>
-    </section>
+            <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
+                <ul class="nav navbar-nav">
+                    <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
+                    <li><a class="top-menu-item" href="#supporters">حمایت کنندگان</a></li>
+                    <li><a class="top-menu-item" href="#support">حمایت</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="top-menu-item" href="#budget">بودجه</a></li>
+                    <li><a class="top-menu-item" href="#interview">مصاحبه</a></li>
+                    <li><a class="top-menu-item" href="#summery" data-targ>قلم چیست</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
 
 {% block body %}
 {% endblock %}
