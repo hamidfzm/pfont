@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
+
+# python import
 import os
 
+# flask import
 # from flask.ext.babel import gettext as _
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -9,8 +13,14 @@ class Config:
     def __init__(self):
         pass
 
-    SECRET_KEY = "sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28="
-    WTF_CSRF_SECRET_KEY = "sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28="
+    SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
+    WTF_CSRF_SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
+
+    # mandrill config
+    MANDRILL_API_KEY = 'jiOkNnvrJMuKEqD_hnRbTQ'  # use to send mail using mandrill service
+    NO_REPLY_MAIL_ADDRESS = 'noreply@librefont.ir'
+    NO_REPLY_MAIL_NAME = 'کمپین قلم فارسی آزاد'
+    GOOGLE_ANALYTICS_DOMAINS = ['librefont.ir', 'www.librefont.ir']
 
     # RECAPTCHA_PUBLIC_KEY = "6LfJT_gSAAAAAHUcp-NtDYguqZGe4kAyqGptNK7q"
     # RECAPTCHA_PRIVATE_KEY = "6LfJT_gSAAAAABL_zPayoW_6uAn-3ZXh9Pf8zHgQ"
@@ -44,6 +54,13 @@ class Config:
     SMS_PASSWORD = ''
     SMS_SOAP_SERVICE = ''
 
+    # smtp mail sender config
+    # MAIL_SERVER = 'smtp.googlemail.com'
+    # MAIL_PORT = 587
+    # MAIL_USE_TLS = True
+    # MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    # MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+
     @staticmethod
     def init_app(app):
         pass
@@ -51,11 +68,6 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MONGODB_SETTINGS = {'DB': 'pfont',
                         'HOST': '127.0.0.1',
                         'PORT': 27017}

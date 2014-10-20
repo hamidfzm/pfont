@@ -11,15 +11,17 @@ from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
 
 # import project
 from app.utilis.sms import SMS
+from app.utilis.mandrillemail import MandrillEmail
 from config import config
 
 
 # bootstrap = Bootstrap()
-mail = Mail()
+# mail = Mail()
 moment = Moment()
 babel = Babel()
 db = MongoEngine()
-sms = SMS()
+# sms = SMS()
+mandrillemail = MandrillEmail()
 
 
 def create_app(config_name):
@@ -27,36 +29,29 @@ def create_app(config_name):
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
+    app.template_folder = '../templates'
+    app.static_folder = '../static'
+
     # bootstrap.init_app(app)
-    mail.init_app(app)
+    # mail.init_app(app)
     moment.init_app(app)
     db.init_app(app)
     babel.init_app(app)
-    sms.init_app(app)
+    # sms.init_app(app)
+    mandrillemail.init_app(app)
 
     app.session_interface = MongoEngineSessionInterface(db)
 
     # Registering blue prints
     from main import mod
-    # from auth import auth
-    # from user import user
-
     app.register_blueprint(mod)
-    # app.register_blueprint(auth)
-    # app.register_blueprint(user)
 
     # Registering custom template tags
     from app.utilis.template_tags import tags
-
-    # from app.auth.models import User, GuestUser
-
-    app.template_folder = '../templates'
-    app.static_folder = '../static'
-    # app.host = config['HOST']
-    #app.port = config['PORT']
+    app.context_processor(tags)
 
     # @app.before_request
-    # def before_request():
+    # def user_in_g():
     #     """
     #     """
     #     if 'logged_in' in session:
@@ -84,8 +79,6 @@ def create_app(config_name):
 
     if app.config['MINIFY_PAGE']:
         app.after_request(response_minify)
-
-    app.context_processor(tags)
 
     # attach routes and custom error pages here
     return app
