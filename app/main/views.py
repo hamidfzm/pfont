@@ -1,24 +1,27 @@
 # -*- coding: utf-8 -*-
 
 # python import
-import mandrill
-from datetime import datetime
-from time import time
+from mongoengine import ValidationError, DoesNotExist
+import traceback
+from htmlmin.main import minify
 
 # flask import
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, url_for, abort
 from flask.ext.babel import gettext as _
 
 # project import
 from app.utilis.decorators import title, ajax_view
+from app import mandrillemail
 from . import mod
 from .forms import DonatorForm
+from .models import Donate, Donator
 
 
 @mod.route('/')
 @title(_('Persian Libre Font Campaign'))
 def index():
-    return render_template('index.html', form=DonatorForm())
+    donator_obj = Donator.objects(donated=True)
+    return render_template('index.html', form=DonatorForm(), donatores=donator_obj)
 
 
 @mod.route('donate/', methods=['POST'])
@@ -27,26 +30,45 @@ def donate():
     form = DonatorForm(request.form)
 
     if form.validate():
-        return jsonify({'status': 1})
+        # temporary naughty way
+
+        try:
+            donator_obj = Donator.objects.get(email=form.email.data.lower())
+
+        except (ValidationError, DoesNotExist):
+            donator_obj = Donator(email=form.email.data.lower(), nickname=form.nickname.data)
+
+        donator_obj.commit()
+
+        donate_obj = Donate(amount=form.amount.data, donator=donator_obj)
+        donate_obj.save()
+
+        # connect to bank here
+        return jsonify({'status': 1, 'redirect': str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.id))})
+    return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
+
+
+@mod.route('donate/callback/<donate_id>/', methods=["GET", "POST"])
+def donate_callback(donate_id):
     try:
-        mandrill_client = mandrill.Mandrill('jiOkNnvrJMuKEqD_hnRbTQ')
-        message = {
-            'html': '<p>Example HTML content</p>',
-            'from_email': 'noreply@librefont.ir',
-            'from_name': 'کمپین قلم فارسی آزاد',
-            'subject': 'تشکر',
-            'to': [{'email': 'hamidfzm@gmail.com',
-                    'name': 'Hamid FzM',
-                    'type': 'to'}],
-            'google_analytics_domains': ['librefont.ir'],
+        # validate amount in here
+        # request.args['au']
 
-        }
+        donate_obj = Donate.objects.get(id=donate_id)
+        donate_obj.confirm = True
+        donate_obj.save()
 
-        result = mandrill_client.messages.send(message=message, async=True)
-        print result
-    except mandrill.Error, e:
-        # Mandrill errors are thrown as exceptions
-        print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
-        # A mandrill error occurred: <class 'mandrill.UnknownSubaccountError'> - No subaccount exists with the id 'customer-123'
-        raise
-    return jsonify({'status': 2, 'form': render_template('donate_form.html', form=form)})
+        donator_obj = donate_obj.donator
+        donator_obj.donated = True
+        donator_obj.save()
+
+        # print mandrillemail.send(_('Thanks'), donator_obj.email, donator_obj.nickname, 'Thanks for donating to librefont.')
+        return 'Thank'
+
+    except (ValidationError, DoesNotExist):
+        return abort(404)
+
+    # except Exception as e:
+    #     traceback.print_exc()
+    #     print e.message
+    #     return abort(500)
