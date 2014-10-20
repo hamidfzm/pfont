@@ -7,14 +7,16 @@ $(document).ready(function () {
 
     form.submit(function (e) {
         e.preventDefault();
+        var form_data = form.find('form');
         $.ajax({
             type: "POST",
-            url: form.find('form').attr('action'),
-            data: form.serialize(),
+            url: form_data.attr('action'),
+            data: form_data.serialize(),
             success: function (data) {
-                if (data.status == 2){
-                    form.html(data.form);
-                    console.log(data)
+                if (data.status == 2) {
+                    form.html(data.form)
+                } else if (data.status == 1) {
+                    window.location = data.redirect;
                 }
             }
         });
