@@ -1,101 +1,37 @@
-# encoding: utf-8
-"""
-persian.py
-A simple library for Persian language localization in Python
-Copyright (C) 2013 Mohammad reza Kamalifard (kamalifard@datasec.ir) and other contributors
-MIT licensed
-https://github.com/itmard/persian.py 
-"""
+# coding: utf-8
 
-import re 
+l2p = [u'۰', u'۱', u'۲', u'۳', u'۴', u'۵', u'۶', u'۷', u'۸', u'۹']
+p2l = [u'0', u'1', u'2', u'3', u'4', u'5', u'6', u'7', u'8', u'9']
 
 
-def enToPersianNumb(number):
-    dic = {
-        '0': '۰',
-        '1': '۱',
-        '2': '۲',
-        '3': '۳',
-        '4': '۴',
-        '5': '۵',
-        '6': '۶',
-        '7': '۷',
-        '8': '۸',
-        '9': '۹',
-        '.': '.',
-    }
-    return multiple_replace(dic, number)
+def persian_num_to_english(persian_num):
+    persian_num = str(persian_num)
+    place = 0
+    for integer in l2p:
+        persian_num = persian_num.replace(integer, p2l[place])
+        place += 1
+    return persian_num
 
 
-def enToPersianChar(userInput):
-    dic = {  # Assumes that characters written with standard persian keyboard, not windows arabic layout
-        'q': 'ض',
-        'w': 'ص',
-        'e': 'ث',
-        'r': 'ق',
-        't': 'ف',
-        'y': 'غ',
-        'u': 'ع',
-        'i': 'ه',
-        'o': 'خ',
-        'p': 'ح',
-        '[': 'ج',
-        ']': 'چ',
-        'a': 'ش',
-        's': 'س',
-        'd': 'ی',
-        'f': 'ب',
-        'g': 'ل',
-        'h': 'ا',
-        'j': 'ت',
-        'k': 'ن',
-        'l': 'م',
-        ';': 'ک',
-        "'": 'گ',
-        'z': 'ظ',
-        'x': 'ط',
-        'c': 'ز',
-        'v': 'ر',
-        'b': 'ذ',
-        'n': 'د',
-        'm': 'پ',
-        ',': 'و',
-        '?': '؟',
-    }
-    return multiple_replace(dic, userInput)
+def english_num_to_persian(english_num):
+    english_num = str(english_num)
+    place = 0
+    for integer in p2l:
+        english_num = english_num.replace(integer, l2p[place])
+        place += 1
+    return english_num
 
 
-def arToPersianNumb(number):
-    dic = {
-        '١': '۱',
-        '٢': '۲',
-        '٣': '۳',
-        '٤': '۴',
-        '٥': '۵',
-        '٦': '۶',
-        '٧': '۷',
-        '٨': '۸',
-        '٩': '۹',
-        '٠': '۰',
-    }
-    return multiple_replace(dic, number)
+def int_to_persian_string(integer):
+    result = ""
+    tmp = int(integer)
+    u = tmp % 1000
+    tmp = tmp / 1000
 
+    t = tmp % 1000
+    tmp = tmp / 1000
 
-def arToPersianChar(userInput):
-    dic = {
-        'ك': 'ک',
-        'دِ': 'د',
-        'بِ': 'ب',
-        'زِ': 'ز',
-        'ذِ': 'ذ',
-        'شِ': 'ش',
-        'سِ': 'س',
-        'ى': 'ی',
-        'ي': 'ی'
-    }
-    return multiple_replace(dic, userInput)
+    m = tmp % 1000
+    b = tmp / 1000
 
-
-def multiple_replace(dic, text):
-    pattern = "|".join(map(re.escape, dic.keys()))
-    return re.sub(pattern, lambda m:  dic[m.group()], str(text))
+    return result
