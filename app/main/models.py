@@ -1,20 +1,38 @@
-from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ListField, EmbeddedDocument
+#-*- coding: utf-8 -*-
+from hashlib import md5
+from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ReferenceField, BooleanField
 from datetime import datetime
+
+
+class Donator(Document):
+    nickname = StringField(max_length=100)
+    email = EmailField(required=True)
+    donated = BooleanField(default=False)
+    md5 = StringField(required=True)
+
+    meta = {
+        'indexes': ['email', 'donated']
+    }
+
+    @property
+    def gravatar(self):
+        return "http://www.gravatar.com/avatar/{}s=70".format(self.md5)
+
+    def commit(self):
+        self.md5 = md5(self.email).hexdigest()
+        self.save()
+
+    def __repr__(self):
+        return '<Donator %r>' % self.email
 
 
 class Donate(Document):
     amount = IntField(required=True, min_value=0)
     date = DateTimeField(required=True, default=datetime.now())
-
-
-class Donator(Document):
-    nickname = StringField(required=False, max_length=100)
-    email = EmailField(required=True)
-    donate = ListField(EmbeddedDocument(Donate))
-
-    meta = {
-        'indexes': ['email']
-    }
+    donator = ReferenceField(Donator, required=True)
+    confirm = BooleanField(required=True, default=False)
 
     def __repr__(self):
-        return '<Donator %r>' % self.email
+        if self.confirm:
+            return '<Donated %r Rials - %r>' % (self.amount, self.date)
+        return 'Donate %r' % self.amount
