@@ -1,7 +1,9 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+
+# python import
 from hashlib import md5
-from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ReferenceField, BooleanField
 from datetime import datetime
+from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ReferenceField, BooleanField
 
 
 class Donator(Document):
@@ -13,6 +15,10 @@ class Donator(Document):
     meta = {
         'indexes': ['email', 'donated']
     }
+
+    @property
+    def name(self):
+        return self.nickname or self.email
 
     @property
     def gravatar(self):
@@ -31,6 +37,10 @@ class Donate(Document):
     date = DateTimeField(required=True, default=datetime.now())
     donator = ReferenceField(Donator, required=True)
     confirm = BooleanField(required=True, default=False)
+
+    meta = {
+        'indexes': ['confirm']
+    }
 
     def __repr__(self):
         if self.confirm:
