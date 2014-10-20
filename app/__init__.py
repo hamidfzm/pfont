@@ -2,7 +2,7 @@
 from htmlmin.main import minify
 
 # import flask
-from flask import Flask
+from flask import Flask, request, render_template
 # from flask.ext.bootstrap import Bootstrap
 from flask.ext.babel import Babel
 from flask.ext.mail import Mail
@@ -61,6 +61,14 @@ def create_app(config_name):
     #             g.user = GuestUser()
     #     else:
     #         g.user = GuestUser()
+
+    def excluld_domains():
+        url = request.url_root.replace('http://', '').replace('/', '').replace('www.', '')
+        if url in app.config['EXCLUDED_DOMAINS']:
+            return render_template('construction.html')
+
+    if app.config['UNDER_CONSTRUCTION']:
+        app.before_request(excluld_domains)
 
     def response_minify(response):
             """

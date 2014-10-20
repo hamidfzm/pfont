@@ -24,6 +24,7 @@ class Config:
     NO_REPLY_MAIL_ADDRESS = 'noreply@librefont.ir'
     NO_REPLY_MAIL_NAME = 'کمپین قلم فارسی آزاد'
     GOOGLE_ANALYTICS_DOMAINS = ['librefont.ir', 'www.librefont.ir']
+    EXCLUDED_DOMAINS = ['librefont.ir']  # if site where under construction these domains will be excluded
 
     # RECAPTCHA_PUBLIC_KEY = "6LfJT_gSAAAAAHUcp-NtDYguqZGe4kAyqGptNK7q"
     # RECAPTCHA_PRIVATE_KEY = "6LfJT_gSAAAAABL_zPayoW_6uAn-3ZXh9Pf8zHgQ"
@@ -75,6 +76,7 @@ class DevelopmentConfig(Config):
                         'HOST': '127.0.0.1',
                         'PORT': 27017}
     MINIFY_PAGE = False
+    UNDER_CONSTRUCTION = False
 
 
 class ProductionConfig(Config):
@@ -86,6 +88,9 @@ class ProductionConfig(Config):
                         'HOST': '127.0.0.1',
                         'PORT': 27017}
     MINIFY_PAGE = True
+
+    UNDER_CONSTRUCTION = True
+
 
 
 config = {'development': DevelopmentConfig,
