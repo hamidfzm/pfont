@@ -3,6 +3,12 @@
  */
 
 $(document).ready(function () {
+    $(function () {
+        $(".avatar").tooltip({
+            placement : 'auto bottom'
+        });
+    });
+
     var form = $("#DonatorForm");
 
     form.submit(function (e) {

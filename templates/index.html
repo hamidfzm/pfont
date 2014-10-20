@@ -113,25 +113,25 @@
         <div class="row">
 
             <div class="col-lg-8 col-lg-offset-2" style="margin-top: 40px">
-                <div class="arrow_box">5000</div>
+                <div class="arrow_box">{{ persian(donates) }}</div>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ (donates / 50000000) * 100 }}%;"></div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-4">
-                <h3>123</h3>
+                <h3>{{ persian(donators_count) }}</h3>
 
                 <p>تعداد حامیان (نفر)</p>
             </div>
             <div class="col-lg-4 col-md-4">
-                <h3>5000</h3>
+                <h3>{{ persian(donates) }}</h3>
 
                 <p>میزان حمایت (ریال)</p>
             </div>
             <div class="col-lg-4 col-md-4">
-                <h3>56</h3>
+                <h3>{{ persian(days_passed) }}</h3>
 
                 <p>مدت زمان (روز)</p>
             </div>
@@ -153,8 +153,8 @@
         <h1 class="top-bottom-padding" style="margin-bottom: 75px">حمایت کنندگان</h1>
 
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-            {% for i in range(36) %}
-                <div class="avatar"></div>
+            {% for donator in donatores %}
+                <img src="{{ donator.gravatar }}" class="avatar" title="{{ donator.name }}">
             {% endfor %}
         </div>
     </section>

@@ -2,16 +2,16 @@
 
 # python import
 from mongoengine import ValidationError, DoesNotExist
-import traceback
 from htmlmin.main import minify
+from datetime import datetime
+import traceback
 
 # flask import
-from flask import render_template, request, jsonify, url_for, abort
+from flask import render_template, request, jsonify, url_for, abort, current_app
 from flask.ext.babel import gettext as _
 
 # project import
 from app.utilis.decorators import title, ajax_view
-from app import mandrillemail
 from . import mod
 from .forms import DonatorForm
 from .models import Donate, Donator
@@ -21,7 +21,13 @@ from .models import Donate, Donator
 @title(_('Persian Libre Font Campaign'))
 def index():
     donator_obj = Donator.objects(donated=True)
-    return render_template('index.html', form=DonatorForm(), donatores=donator_obj)
+
+    return render_template('index.html',
+                           form=DonatorForm(),
+                           donatores=donator_obj,
+                           donators_count=len(donator_obj),
+                           days_passed=(datetime.now() - current_app.config['CAMPAIGN_START']).days,
+                           donates=int(Donate.objects(confirm=True).sum('amount')))
 
 
 @mod.route('donate/', methods=['POST'])
@@ -44,7 +50,7 @@ def donate():
         donate_obj.save()
 
         # connect to bank here
-        return jsonify({'status': 1, 'redirect': str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.id))})
+        return jsonify({'status': 1, 'redirect': str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.pk))})
     return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
 
 
@@ -68,7 +74,7 @@ def donate_callback(donate_id):
     except (ValidationError, DoesNotExist):
         return abort(404)
 
-    # except Exception as e:
-    #     traceback.print_exc()
-    #     print e.message
-    #     return abort(500)
+    except Exception as e:
+        traceback.print_exc()
+        print e.message
+        return abort(500)

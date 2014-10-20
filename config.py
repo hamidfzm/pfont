@@ -2,6 +2,7 @@
 
 # python import
 import os
+from datetime import datetime
 
 # flask import
 # from flask.ext.babel import gettext as _
@@ -12,6 +13,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     def __init__(self):
         pass
+
+    CAMPAIGN_START = datetime(2014, 10, 19, 0, 0)
 
     SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
     WTF_CSRF_SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
