@@ -4,6 +4,10 @@
 from hashlib import md5
 from datetime import datetime
 from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ReferenceField, BooleanField
+from urllib import urlencode
+
+# flask import
+from flask import url_for
 
 
 class Donator(Document):
@@ -22,8 +26,9 @@ class Donator(Document):
 
     @property
     def gravatar(self):
-        return "http://www.gravatar.com/avatar/{}s=70".format(self.md5)
-
+        return "http://www.gravatar.com/avatar/" + self.md5 + urlencode(
+            {'s': 70, 'd': url_for('static', filename='image/avatar.png', _external=True)})
+    
     def commit(self):
         self.md5 = md5(self.email).hexdigest()
         self.save()
