@@ -78,3 +78,7 @@ def donate_callback(donate_id):
         traceback.print_exc()
         print e.message
         return abort(500)
+
+@mod.route('test')
+def test():
+    return render_template('email.html')

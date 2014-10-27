@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="fa">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @font-face {
+            font-family: 'Sego';
+            src: url('{{ url_for('static', filename='fonts/segoeui.eot', _external=True) }}?#') format('eot'),
+            url({{ url_for('static', filename='fonts/segoeui.woff', _external=True) }}) format('woff'),
+            url({{ url_for('static', filename='fonts/segoeui.ttf', _external=True) }}) format('truetype');
+        }
+    </style>
+</head>
+<body style="
+text-align: center;
+display: block;
+margin: 0 auto 0 auto ;
+background-color: #000000; ">
+
+<img src="{{ url_for('static', filename='image/logo.png', _external=True) }}"
+     style="max-width: 100%;
+     padding: 10px;
+     background-color: #ffffff;
+     border-bottom-left-radius: 65px;
+     border-bottom-right-radius: 65px">
+
+<div style="background-color: #8dc63f;
+margin-top: -45px; padding: 80px 10px 25px 10px;
+font-family: Sego, Tahoma, Helvetica, sans-serif;
+color: #ffffff;">
+
+    <h1>از حمایت شما متشکریم</h1>
+
+    <p style="font-size: 20px">به زودی شما را در جریان اخبار این کمپین می گذاریم</p>
+    <br>
+    <br>
+    <a href="{{ url_for('main.index', _external=True) }}">{{ url_for('main.index', _external=True) }}</a>
+</div>
+
+</body>
+</html>
