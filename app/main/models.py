@@ -26,9 +26,9 @@ class Donator(Document):
 
     @property
     def gravatar(self):
-        return "http://www.gravatar.com/avatar/" + self.md5 + urlencode(
-            {'s': 70, 'd': url_for('static', filename='image/avatar.png', _external=True)})
-    
+        return "http://www.gravatar.com/avatar/{}?{}".format(
+            self.md5, urlencode({'s': 70, 'd': url_for('static', filename='image/avatar.png', _external=True)}))
+
     def commit(self):
         self.md5 = md5(self.email).hexdigest()
         self.save()
