@@ -2,6 +2,7 @@
 
 # python import
 from hashlib import md5
+from base64 import b64encode
 from datetime import datetime
 from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ReferenceField, BooleanField
 from urllib import urlencode
@@ -25,9 +26,11 @@ class Donator(Document):
         return self.nickname or self.email
 
     @property
-    def gravatar(self):
-        return "http://www.gravatar.com/avatar/{}?{}".format(
-            self.md5, urlencode({'s': 70, 'd': url_for('static', filename='image/avatar.png', _external=True)}))
+    def avatar(self):
+        return "http://rokh.chehrak.com/{}?{}".format(
+            self.md5, urlencode({'size': 64,
+                                 'default': url_for('static', filename='image/avatar.png', _external=True),
+                                 'hash': b64encode(self.email)}))
 
     def commit(self):
         self.md5 = md5(self.email).hexdigest()
