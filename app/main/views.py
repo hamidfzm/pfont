@@ -117,8 +117,8 @@ def donate_callback(donate_id):
 
             return redirect(url_for('main.index'))
 
-    except (ValidationError, DoesNotExist):
-        return abort(404)
+    # except (ValidationError, DoesNotExist):
+    #     return abort(404)
 
     except KeyError:
         return abort(403)
