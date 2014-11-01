@@ -87,8 +87,6 @@ def donate_callback(donate_id):
                                                     request.args['Authority'],
                                                     donate_obj.amount)
 
-            print '---------------------'
-            print 'result is %d' % result.Status
             if result.Status == 100:
 
                 donate_obj.confirm = True
@@ -120,8 +118,8 @@ def donate_callback(donate_id):
 
             return redirect(url_for('main.index'))
 
-    # except (ValidationError, DoesNotExist):
-    #     return abort(404)
+    except (ValidationError, DoesNotExist):
+        return abort(404)
 
     except KeyError:
         return abort(403)
