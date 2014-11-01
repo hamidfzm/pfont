@@ -92,7 +92,7 @@ def donate_callback(donate_id):
             if result.Status == 100:
 
                 donate_obj.confirm = True
-                donate_obj.RefID = result.RefID
+                donate_obj.RefID = str(result.RefID)
                 donate_obj.save()
 
                 donator_obj.donated = True
