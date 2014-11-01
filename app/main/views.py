@@ -57,7 +57,7 @@ def donate():
 
             result = cl.service.PaymentRequest(current_app.config['MMERCHANT_ID'],
                                                donate_obj.amount,
-                                               'Donate from %s' % donator_obj.name,
+                                               u'هدیه از طرف %s' % donator_obj.name,
                                                donator_obj.email,
                                                '',
                                                str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.pk)))
@@ -65,7 +65,7 @@ def donate():
                 # connect to bank here
                 return jsonify({'status': 1, 'redirect': 'https://www.zarinpal.com/pg/StartPay/' + result.Authority})
             else:
-                return jsonify({'status': 3, 'error': 'Error %d' % result.Status})
+                return jsonify({'status': 3, 'error': result.Status})
 
         return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
     except Exception as e:
@@ -95,8 +95,13 @@ def donate_callback(donate_id):
                 donator_obj.donated = True
                 donator_obj.save()
 
+                # TODO say thank you to user and send donate id and some other staff
                 mandrillemail.send(_('Thanks'), donator_obj.email, donator_obj.nickname, render_template('email.html'))
 
+                return redirect(url_for('main.thanks'))
+
+            elif result.Status == 101:
+                # TODO tell user that this transaction confirms before
                 return redirect(url_for('main.thanks'))
             else:
                 donate_obj.delete()
@@ -127,3 +132,8 @@ def donate_callback(donate_id):
 @mod.route('thanks/')
 def thanks():
     return render_template('email.html')
+
+@mod.route('contact/', methods=['POST'])
+def contact():
+    print request.form
+    return 'OK'
