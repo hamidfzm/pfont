@@ -78,7 +78,7 @@ def donate():
 def donate_callback(donate_id):
     try:
 
-        donate_obj = Donate.objects.get(id=donate_id)
+        donate_obj = Donate.objects.get(pk=donate_id)
         donator_obj = donate_obj.donator
 
         cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
