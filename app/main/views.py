@@ -86,6 +86,9 @@ def donate_callback(donate_id):
             result = cl.service.PaymentVerification(current_app.config['MMERCHANT_ID'],
                                                     request.args['Authority'],
                                                     donate_obj.amount)
+
+            print '---------------------'
+            print 'result is %d' % result.Status
             if result.Status == 100:
 
                 donate_obj.confirm = True
