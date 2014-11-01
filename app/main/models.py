@@ -42,6 +42,7 @@ class Donator(Document):
 
 class Donate(Document):
     amount = IntField(required=True, min_value=0)
+    RefID = StringField()
     date = DateTimeField(required=True, default=datetime.now())
     donator = ReferenceField(Donator, required=True)
     confirm = BooleanField(required=True, default=False)

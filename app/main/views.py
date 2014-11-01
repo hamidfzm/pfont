@@ -5,6 +5,7 @@ from mongoengine import ValidationError, DoesNotExist
 from htmlmin.main import minify
 from datetime import datetime
 import traceback
+from suds.client import Client
 
 # flask import
 from flask import render_template, request, jsonify, url_for, abort, current_app, redirect
@@ -48,37 +49,74 @@ def donate():
         donator_obj.commit()
 
         donate_obj = Donate(amount=form.amount.data, donator=donator_obj)
+
         donate_obj.save()
 
-        # connect to bank here
-        return jsonify({'status': 1, 'redirect': str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.pk))})
+        cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
+        result = cl.service.PaymentRequest(current_app.config['MMerchantID'],
+                                           donate_obj.amount,
+                                           'Donate from %s' % donator_obj.name,
+                                           donator_obj.email,
+                                           '',
+                                           str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.pk)))
+        if result.Status == 100:
+            # connect to bank here
+            return jsonify({'status': 1, 'redirect': 'https://www.zarinpal.com/pg/StartPay/' + result.Authority})
+        else:
+            return jsonify({'status': 3, 'error': 'Error %d' % result.Status})
+
     return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
 
 
 @mod.route('donate/callback/<donate_id>/', methods=["GET", "POST"])
 def donate_callback(donate_id):
     try:
-        # validate amount in here
-        # request.args['au']
 
         donate_obj = Donate.objects.get(id=donate_id)
-        donate_obj.confirm = True
-        donate_obj.save()
-
         donator_obj = donate_obj.donator
-        donator_obj.donated = True
-        donator_obj.save()
 
-        type(mandrillemail.send(_('Thanks'), donator_obj.email, donator_obj.nickname, render_template('email.html')))
-        return redirect(url_for('main.thanks'))
+        cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
+        if request.args.get('Status') == 'OK':
+            result = cl.service.PaymentVerification(current_app.config['MMerchantID'],
+                                                    request.args['Authority'],
+                                                    donate_obj.amount)
+            if result.Status == 100:
+
+                donate_obj.confirm = True
+                donate_obj.RefID = result.RefID
+                donate_obj.save()
+
+                donator_obj.donated = True
+                donator_obj.save()
+
+                mandrillemail.send(_('Thanks'), donator_obj.email, donator_obj.nickname, render_template('email.html'))
+
+                return redirect(url_for('main.thanks'))
+            else:
+                donate_obj.delete()
+                if not donator_obj.donated:
+                    donator_obj.delete()
+
+                return jsonify({'status': 3, 'error': 'Error %d' % result.Status})
+        else:
+            # payment cancelled by user
+            donate_obj.delete()
+            if not donator_obj.donated:
+                donator_obj.delete()
+
+            return redirect(url_for('main.index'))
 
     except (ValidationError, DoesNotExist):
         return abort(404)
+
+    except KeyError:
+        return abort(403)
 
     except Exception as e:
         traceback.print_exc()
         print e.message
         return abort(500)
+
 
 @mod.route('thanks/')
 def thanks():

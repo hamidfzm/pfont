@@ -18,6 +18,8 @@ class Config:
 
     SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
     WTF_CSRF_SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
+    MMerchantID = '54547969-a934-40f2-818f-0d095bef37d4'
+    ZARINPAL_WEBSERVICE = 'https://de.zarinpal.com/pg/services/WebGate/wsdl'
 
     # mandrill config
     MANDRILL_API_KEY = 'jiOkNnvrJMuKEqD_hnRbTQ'  # use to send mail using mandrill service
@@ -89,7 +91,7 @@ class ProductionConfig(Config):
                         'PORT': 27017}
     MINIFY_PAGE = True
 
-    UNDER_CONSTRUCTION = True
+    UNDER_CONSTRUCTION = False
 
 
 
