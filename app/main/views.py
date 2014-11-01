@@ -35,37 +35,42 @@ def index():
 @mod.route('donate/', methods=['POST'])
 @ajax_view
 def donate():
-    form = DonatorForm(request.form)
+    try:
+        form = DonatorForm(request.form)
 
-    if form.validate():
-        # temporary naughty way
+        if form.validate():
+            # temporary naughty way
 
-        try:
-            donator_obj = Donator.objects.get(email=form.email.data.lower())
+            try:
+                donator_obj = Donator.objects.get(email=form.email.data.lower())
 
-        except (ValidationError, DoesNotExist):
-            donator_obj = Donator(email=form.email.data.lower(), nickname=form.nickname.data)
+            except (ValidationError, DoesNotExist):
+                donator_obj = Donator(email=form.email.data.lower(), nickname=form.nickname.data)
 
-        donator_obj.commit()
+            donator_obj.commit()
 
-        donate_obj = Donate(amount=form.amount.data, donator=donator_obj)
+            donate_obj = Donate(amount=form.amount.data, donator=donator_obj)
 
-        donate_obj.save()
+            donate_obj.save()
 
-        cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
-        result = cl.service.PaymentRequest(current_app.config['MMerchantID'],
-                                           donate_obj.amount,
-                                           'Donate from %s' % donator_obj.name,
-                                           donator_obj.email,
-                                           '',
-                                           str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.pk)))
-        if result.Status == 100:
-            # connect to bank here
-            return jsonify({'status': 1, 'redirect': 'https://www.zarinpal.com/pg/StartPay/' + result.Authority})
-        else:
-            return jsonify({'status': 3, 'error': 'Error %d' % result.Status})
+            cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
+            result = cl.service.PaymentRequest(current_app.config['MMerchantID'],
+                                               donate_obj.amount,
+                                               'Donate from %s' % donator_obj.name,
+                                               donator_obj.email,
+                                               '',
+                                               str(url_for('main.donate_callback', _external=True, donate_id=donate_obj.pk)))
+            if result.Status == 100:
+                # connect to bank here
+                return jsonify({'status': 1, 'redirect': 'https://www.zarinpal.com/pg/StartPay/' + result.Authority})
+            else:
+                return jsonify({'status': 3, 'error': 'Error %d' % result.Status})
 
-    return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
+        return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
+    except Exception as e:
+        traceback.print_exc()
+        print e.message
+        return abort(500)
 
 
 @mod.route('donate/callback/<donate_id>/', methods=["GET", "POST"])
