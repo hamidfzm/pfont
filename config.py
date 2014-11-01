@@ -18,7 +18,7 @@ class Config:
 
     SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
     WTF_CSRF_SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
-    MMerchantID = '54547969-a934-40f2-818f-0d095bef37d4'
+    MMERCHANT_ID = '54547969-a934-40f2-818f-0d095bef37d4'
     ZARINPAL_WEBSERVICE = 'https://de.zarinpal.com/pg/services/WebGate/wsdl'
 
     # mandrill config

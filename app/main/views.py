@@ -54,8 +54,8 @@ def donate():
             donate_obj.save()
 
             cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
-            print current_app.config['MMerchantID']
-            result = cl.service.PaymentRequest(current_app.config['MMerchantID'],
+
+            result = cl.service.PaymentRequest(current_app.config['MMERCHANT_ID'],
                                                donate_obj.amount,
                                                'Donate from %s' % donator_obj.name,
                                                donator_obj.email,
@@ -83,7 +83,7 @@ def donate_callback(donate_id):
 
         cl = Client(current_app.config['ZARINPAL_WEBSERVICE'])
         if request.args.get('Status') == 'OK':
-            result = cl.service.PaymentVerification(current_app.config['MMerchantID'],
+            result = cl.service.PaymentVerification(current_app.config['MMERCHANT_ID'],
                                                     request.args['Authority'],
                                                     donate_obj.amount)
             if result.Status == 100:
