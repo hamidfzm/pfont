@@ -18,5 +18,6 @@ class DonatorForm(Form):
 
     amount = StringField(_('Amount'), [
         validators.DataRequired(message=_('Field required')),
-        validators.Regexp(regex='^[1-9][0-9]{3,}$')
+        # validators.Regexp(regex='^[1-9][0-9]{3,}$')
+        validators.Regexp(regex='^[1-9][0-9]{2,}$')
     ])
