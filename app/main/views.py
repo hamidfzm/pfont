@@ -136,5 +136,7 @@ def thanks():
 
 @mod.route('contact/', methods=['POST'])
 def contact():
-    print request.form
+    print request.form.keys()
+    print '------------------------------------'
+    print request.form.values()
     return 'OK'
