@@ -23,6 +23,8 @@ $(document).ready(function () {
                     form.html(data.form)
                 } else if (data.status == 1) {
                     window.location = data.redirect;
+                } else if (data.status == 3) {
+                    alert('خخطای شماره ' + data.error + '، لطفا دوباره تلاش کنید.')
                 }
             }
         });
