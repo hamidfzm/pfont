@@ -12,7 +12,7 @@ from flask import render_template, request, jsonify, url_for, abort, current_app
 from flask.ext.babel import gettext as _
 
 # project import
-from app.utilis.decorators import title, ajax_view
+from app.utilis.decorators import ajax_view
 from app import mandrillemail
 from . import mod
 from .forms import DonatorForm
@@ -20,7 +20,6 @@ from .models import Donate, Donator
 
 
 @mod.route('/')
-@title(_('Persian Libre Font Campaign'))
 def index():
     donator_obj = Donator.objects(donated=True)
 
@@ -97,7 +96,7 @@ def donate_callback(donate_id):
                 donator_obj.save()
 
                 # TODO say thank you to user and send donate id and some other staff
-                mandrillemail.send(_('Thanks'), donator_obj.email, donator_obj.nickname, render_template('email.html'))
+                mandrillemail.send(u'کمپین قلم فارسی آزاد', donator_obj.email, donator_obj.nickname, render_template('email.html'))
 
                 return redirect(url_for('main.thanks'))
 
@@ -133,6 +132,7 @@ def donate_callback(donate_id):
 @mod.route('thanks/')
 def thanks():
     return render_template('email.html')
+
 
 @mod.route('contact/', methods=['POST'])
 def contact():
