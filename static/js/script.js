@@ -5,7 +5,7 @@
 $(document).ready(function () {
     $(function () {
         $(".avatar").tooltip({
-            placement : 'auto bottom'
+            placement: 'auto bottom'
         });
     });
 
@@ -51,7 +51,17 @@ $(document).ready(function () {
         });
 
         currLink.addClass('active');
-    })
+    });
+
+    var dir = $('input[type=text]');
+    dir.keyup(function (e) {
+        if (isUnicode(dir.val())) {
+            $(this).css('direction', 'rtl');
+        }
+        else {
+            $(this).css('direction', 'ltr');
+        }
+    });
 });
 
 function onScroll(e) {
@@ -71,4 +81,15 @@ function onScroll(e) {
             currLink.removeClass('active');
         }
     });
+}
+
+function isUnicode(str) {
+    var letters = [];
+    for (var i = 0; i <= str.length; i++) {
+        letters[i] = str.substring((i - 1), i);
+        if (letters[i].charCodeAt() > 255) {
+            return true;
+        }
+    }
+    return false;
 }
