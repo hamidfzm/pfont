@@ -1,5 +1,6 @@
 @font-face {
     font-family: 'Sego';
+    src: local('Segoe UI');
     src: url('../fonts/segoeui.eot?#') format('eot'), /* IE6–8 */ url('../fonts/segoeui.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/segoeui.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
 }
 
@@ -237,10 +238,10 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-box-shadow: none;
 }
 
-#summery p, h1 {
+#summery p, h1, li {
     color: #808285;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 200;
 }
 
 section h1 {
@@ -328,5 +329,5 @@ section h1 {
 
 #zarinpal {
     width: 115px;
-    padding-top: 150px;
+    padding-top: 10px;
 }
