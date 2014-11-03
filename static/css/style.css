@@ -238,6 +238,14 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-box-shadow: none;
 }
 
+.tooltip.top .tooltip-inner {
+    background-color: #8dc63f;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #8dc63f;
+}
+
 #summery p, h1, li {
     color: #808285;
     font-size: 18px;
@@ -257,7 +265,7 @@ section h1 {
     margin-bottom: 20px;
     margin-top: 20px;
     color: #808285;
-    font-size: 100px;
+    font-size: 90px;
     font-weight: 700;
 }
 
