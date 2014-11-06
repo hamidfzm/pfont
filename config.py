@@ -31,7 +31,7 @@ class Config:
     # RECAPTCHA_PUBLIC_KEY = "6LfJT_gSAAAAAHUcp-NtDYguqZGe4kAyqGptNK7q"
     # RECAPTCHA_PRIVATE_KEY = "6LfJT_gSAAAAABL_zPayoW_6uAn-3ZXh9Pf8zHgQ"
     # RECAPTCHA_OPTIONS = {
-    #     'theme': 'custom',
+    # 'theme': 'custom',
     #     'custom_theme_widget': 'recaptcha_widget',
     #     'custom_translations': {
     #         'visual_challenge': _('Get a visual challenge'),
@@ -47,10 +47,15 @@ class Config:
     # }
     # some nasty recaptach bebel bug fixes
 
-    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    # SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[Hamid FzM]'
     FLASKY_MAIL_SENDER = 'Hamid FzM <mail@hamidfzm.ir>'
     FLASKY_ADMIN = 'Hamid FzM'
+
+    # LANGUAGES = {
+    #     'en': 'English',
+    #     'fa': u'فارسی'
+    # }
     BABEL_DEFAULT_LOCALE = 'fa'
     BABEL_DEFAULT_TIMEZONE = 'UTC+03:30'
 
@@ -92,7 +97,6 @@ class ProductionConfig(Config):
     MINIFY_PAGE = True
 
     UNDER_CONSTRUCTION = False
-
 
 
 config = {'development': DevelopmentConfig,
