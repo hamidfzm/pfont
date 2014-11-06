@@ -1,23 +1,25 @@
+# -*- coding: utf-8 -*-
+
 # flask import
 from flask.ext.wtf import Form
 from wtforms import StringField, validators
-from flask.ext.babel import gettext as _
+# from flask.ext.babel import gettext as _
 
 
 class DonatorForm(Form):
-    email = StringField(_('Email'), [
-        validators.Length(min=6, max=100, message=_('Invalid email length')),
-        validators.DataRequired(message=_('Field required')),
-        validators.Email(message=_('Invalid email address')),
+    email = StringField('Email', [
+        validators.Length(min=6, max=100, message=u'طول پست الکترونیک باید بین ۶ تا ۱۰۰ کارکتر باشد'),
+        validators.DataRequired(message=u'این قسمت اجباری است'),
+        validators.Email(message=u'آدرس پست الکترونیک اشتباه است'),
     ])
 
-    nickname = StringField(_('Nickname'), [
+    nickname = StringField('Nickname', [
         validators.Optional(),
-        validators.Length(min=3, max=80, message=_('Invalid nickname'))
+        validators.Length(min=3, max=80, message=u'طول نام پرداخت کننده باید بین ۳ تا ۸۰ کارکتر باشد')
     ])
 
-    amount = StringField(_('Amount'), [
-        validators.DataRequired(message=_('Field required')),
+    amount = StringField('Amount', [
+        validators.DataRequired(message=u'این قسمت اجباری است'),
         # validators.Regexp(regex='^[1-9][0-9]{3,}$')
-        validators.Regexp(regex='^[1-9][0-9]{2,}$')
+        validators.Regexp(regex='^[2-9][0-9]{3,}$', message=u'حداقل مبلغ پرداختی ۲۰۰۰ تومان می باشد')
     ])
