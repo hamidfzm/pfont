@@ -7,7 +7,7 @@
     {%- endif %}
 {%- endmacro %}
 
-<form action="{{ url_for('main.donate') }}" method="post" novalidate>
+<form paction="{{ url_for('main.donate') }}" method="post" novalidate>
     {{ form.csrf_token }}
     <div class="col-lg-12 no-padding margin-top">
         {{ form.email(class="form-input btn-block", type="email", placeholder="پست الکترونیک", title=show_errors(form.email)) }}
