@@ -9,10 +9,11 @@ from suds.client import Client
 
 # flask import
 from flask import render_template, request, jsonify, url_for, abort, current_app, redirect
-from flask.ext.babel import gettext as _
+# from flask.ext.babel import gettext as _
 
 # project import
 from app.utilis.decorators import ajax_view
+from app.utilis.persian import english_num_to_persian
 from app import mandrillemail
 from . import mod
 from .forms import DonatorForm
@@ -64,7 +65,7 @@ def donate():
                 # connect to bank here
                 return jsonify({'status': 1, 'redirect': 'https://www.zarinpal.com/pg/StartPay/' + result.Authority})
             else:
-                return jsonify({'status': 3, 'error': result.Status})
+                return jsonify({'status': 3, 'error': english_num_to_persian(result.Status), 'form': minify(render_template('donate_form.html', form=form))})
 
         return jsonify({'status': 2, 'form': minify(render_template('donate_form.html', form=form))})
     except Exception as e:
