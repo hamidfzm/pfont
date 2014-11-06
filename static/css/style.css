@@ -250,15 +250,15 @@ input[type=number]::-webkit-inner-spin-button {
     border-top-color: #9C2B2E;
 }
 
-.form-input.error {
+.error {
     border-color: #9C2B2E;
 }
 
-.tooltip .tooltip-inner {
+.tooltip.top .tooltip-inner {
     background-color: #8dc63f;
 }
 
-.tooltip .tooltip-arrow {
+.tooltip.top .tooltip-arrow {
     border-top-color: #8dc63f;
 }
 
