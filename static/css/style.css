@@ -175,6 +175,9 @@ input[type=number]::-webkit-inner-spin-button {
 
 .form-input:focus {
     outline: 0;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 .form-input::-webkit-input-placeholder {
@@ -238,11 +241,24 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-box-shadow: none;
 }
 
-.tooltip.top .tooltip-inner {
+#DonatorForm .tooltip .tooltip-inner {
+    background-color: #9C2B2E;
+    padding: 10px 20px 10px 20px;
+}
+
+#DonatorForm .tooltip .tooltip-arrow {
+    border-top-color: #9C2B2E;
+}
+
+.form-input.error {
+    border-color: #9C2B2E;
+}
+
+.tooltip .tooltip-inner {
     background-color: #8dc63f;
 }
 
-.tooltip.top .tooltip-arrow {
+.tooltip .tooltip-arrow {
     border-top-color: #8dc63f;
 }
 
@@ -335,7 +351,7 @@ section h1 {
     color: #8dc63f;
 }
 
-#zarinpal {
-    width: 115px;
-    padding-top: 10px;
-}
+/*#zarinpal {*/
+    /*width: 115px;*/
+    /*padding-top: 10px;*/
+/*}*/
