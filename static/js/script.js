@@ -10,28 +10,40 @@ $(document).ready(function () {
     });
 
     var form = $("#DonatorForm");
+    var spinner = $('#support span.fa-spinner');
 
     form.submit(function (e) {
         e.preventDefault();
         var form_data = form.find('form');
+
+        spinner.show();
+        form_data.fadeTo(200, 0, function () {
+            form_data.css({visibility: 'hidden'})
+        });
         $.ajax({
             type: "POST",
             url: form_data.attr('paction'),
             data: form_data.serialize(),
             success: function (data) {
                 //console.log(data);
-                if (data.status == 2) {
-                    form.html(data.form);
-                    $('.form-input').tooltip({
-                        html: true
-                    });
+                if (data.status == 2 || data.status == 3) {
+                    if (data.error) alert('خطای شماره ' + data.error + '، لطفا دوباره تلاش کنید.');
 
-                    // title should exists and must have some value
-                    $("[data-original-title!=''][data-original-title]").addClass('error');
+                    form_data.fadeTo(200, 1, function () {
+                        form_data.css({visibility: 'visible'});
+                        form.html(data.form);
+
+                        $('.form-input').tooltip({
+                            html: true
+                        });
+
+                        // title should exists and must have some value
+                        $("[data-original-title!=''][data-original-title]").addClass('error');
+
+                        spinner.hide();
+                    });
                 } else if (data.status == 1) {
                     window.location = data.redirect;
-                } else if (data.status == 3) {
-                    alert('خخطای شماره ' + data.error + '، لطفا دوباره تلاش کنید.')
                 }
             }
         });
