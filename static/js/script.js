@@ -16,15 +16,18 @@ $(document).ready(function () {
         var form_data = form.find('form');
         $.ajax({
             type: "POST",
-            url: form_data.attr('action'),
+            url: form_data.attr('paction'),
             data: form_data.serialize(),
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 if (data.status == 2) {
-                    form.html(data.form)
+                    form.html(data.form);
                     $('.form-input').tooltip({
                         html: true
                     });
+
+                    // title should exists and must have some value
+                    $("[data-original-title!=''][data-original-title]").addClass('error');
                 } else if (data.status == 1) {
                     window.location = data.redirect;
                 } else if (data.status == 3) {
