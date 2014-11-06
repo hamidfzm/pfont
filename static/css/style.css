@@ -302,6 +302,16 @@ section h1 {
     font-weight: 600;
 }
 
+#support span.fa-spinner {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    display: none;
+    top: 50%
+}
+
 .damon {
     background-color: #000000;
     background-size: contain;
@@ -352,6 +362,6 @@ section h1 {
 }
 
 /*#zarinpal {*/
-    /*width: 115px;*/
-    /*padding-top: 10px;*/
+/*width: 115px;*/
+/*padding-top: 10px;*/
 /*}*/
