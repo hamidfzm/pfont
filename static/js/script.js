@@ -19,8 +19,12 @@ $(document).ready(function () {
             url: form_data.attr('action'),
             data: form_data.serialize(),
             success: function (data) {
+                console.log(data);
                 if (data.status == 2) {
                     form.html(data.form)
+                    $('.form-input').tooltip({
+                        html: true
+                    });
                 } else if (data.status == 1) {
                     window.location = data.redirect;
                 } else if (data.status == 3) {
