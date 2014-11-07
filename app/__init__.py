@@ -7,7 +7,7 @@ from flask import Flask, request, render_template
 from flask.ext.babel import Babel
 from flask.ext.mail import Mail
 from flask.ext.moment import Moment
-from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
+from flask.ext.mongoengine import MongoEngine
 
 # import project
 from app.utilis.sms import SMS
@@ -40,7 +40,7 @@ def create_app(config_name):
     # sms.init_app(app)
     mandrillemail.init_app(app)
 
-    app.session_interface = MongoEngineSessionInterface(db)
+    # app.session_interface = MongoEngineSessionInterface(db)
 
     # Registering blue prints
     from main import mod
