@@ -27,10 +27,12 @@ class Donator(Document):
 
     @property
     def avatar(self):
-        return "http://rokh.chehrak.com/{}?{}".format(
-            self.md5, urlencode({'size': 64,
-                                 'default': url_for('static', filename='image/avatar.png', _external=True),
-                                 'hash': b64encode(self.email)}))
+        # default images for gravatar can be 'wavatar' or 'monsterid'
+        return "http://gravatar.com/avatar/{}?s=64&d=wavatar".format(self.md5)
+        # return "http://rokh.chehrak.com/{}?{}".format(
+        #     self.md5, urlencode({'size': 64,
+        #                          'default': url_for('static', filename='image/avatar.png', _external=True),
+        #                          'hash': b64encode(self.email)}))
 
     def commit(self):
         self.md5 = md5(self.email).hexdigest()
