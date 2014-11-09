@@ -25,8 +25,8 @@ class Config:
     MANDRILL_API_KEY = 'jiOkNnvrJMuKEqD_hnRbTQ'  # use to send mail using mandrill service
     NO_REPLY_MAIL_ADDRESS = 'noreply@librefont.ir'
     NO_REPLY_MAIL_NAME = 'کمپین قلم فارسی آزاد'
-    GOOGLE_ANALYTICS_DOMAINS = ['librefont.ir', 'www.librefont.ir']
-    EXCLUDED_DOMAINS = ['librefont.ir']  # if site where under construction these domains will be excluded
+    GOOGLE_ANALYTICS_DOMAINS = ['librefont.ir', 'www.librefont.ir', 'pfont.ir', 'www.pfont.ir']
+    EXCLUDED_DOMAINS = ['librefont.ir', 'pfont.ir']  # if site where under construction these domains will be excluded
 
     # SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[Hamid FzM]'
