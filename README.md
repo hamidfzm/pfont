@@ -1,4 +1,4 @@
 pfont
 =====
 
-Persian Libre Font Campaign donation website source code: http://www.librefont.ir/
+Persian Libre Font Campaign donation website source code: http://www.pfont.ir/
