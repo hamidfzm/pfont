@@ -28,25 +28,6 @@ class Config:
     GOOGLE_ANALYTICS_DOMAINS = ['librefont.ir', 'www.librefont.ir']
     EXCLUDED_DOMAINS = ['librefont.ir']  # if site where under construction these domains will be excluded
 
-    # RECAPTCHA_PUBLIC_KEY = "6LfJT_gSAAAAAHUcp-NtDYguqZGe4kAyqGptNK7q"
-    # RECAPTCHA_PRIVATE_KEY = "6LfJT_gSAAAAABL_zPayoW_6uAn-3ZXh9Pf8zHgQ"
-    # RECAPTCHA_OPTIONS = {
-    # 'theme': 'custom',
-    #     'custom_theme_widget': 'recaptcha_widget',
-    #     'custom_translations': {
-    #         'visual_challenge': _('Get a visual challenge'),
-    #         'audio_challenge': _('Get an audio challenge'),
-    #         'refresh_btn': _('Get a new challenge'),
-    #         'instructions_visual': _('Type the two words:'),
-    #         'instructions_audio': _('Type what you hear:'),
-    #         'help_btn': _('Help'),
-    #         'play_again': _('Play sound again'),
-    #         'cant_hear_this': _('Download sound as MP3'),
-    #         'incorrect_try_again': _('Incorrect. Try again.'),
-    #     }
-    # }
-    # some nasty recaptach bebel bug fixes
-
     # SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FLASKY_MAIL_SUBJECT_PREFIX = '[Hamid FzM]'
     FLASKY_MAIL_SENDER = 'Hamid FzM <mail@hamidfzm.ir>'
