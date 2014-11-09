@@ -16,13 +16,13 @@ class Config:
 
     CAMPAIGN_START = datetime(2014, 10, 19, 0, 0)
 
-    SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
-    WTF_CSRF_SECRET_KEY = 'sbbBEs447l4/uHvOjDOqDgX7uPLn08UZNfthHBf7Z28='
-    MMERCHANT_ID = '54547969-a934-40f2-818f-0d095bef37d4'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    WTF_CSRF_SECRET_KEY = os.environ.get('WTF_CSRF_SECRET_KEY')
+    MMERCHANT_ID = os.environ.get('MMERCHANT_ID')
     ZARINPAL_WEBSERVICE = 'https://de.zarinpal.com/pg/services/WebGate/wsdl'
 
     # mandrill config
-    MANDRILL_API_KEY = 'jiOkNnvrJMuKEqD_hnRbTQ'  # use to send mail using mandrill service
+    MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY')  # use to send mail using mandrill service
     NO_REPLY_MAIL_ADDRESS = 'noreply@librefont.ir'
     NO_REPLY_MAIL_NAME = 'کمپین قلم فارسی آزاد'
     GOOGLE_ANALYTICS_DOMAINS = ['librefont.ir', 'www.librefont.ir', 'pfont.ir', 'www.pfont.ir']
