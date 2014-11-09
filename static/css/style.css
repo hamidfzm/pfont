@@ -1,12 +1,5 @@
-@font-face {
-    font-family: 'Sego';
-    src: local('Segoe UI');
-    src: url('../fonts/segoeui.eot?#') format('eot'), /* IE6–8 */ url('../fonts/segoeui.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/segoeui.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
-}
-
 body {
-    font-family: Sego, Tahoma, Helvetica, sans-serif;
-    direction: rtl;
+    font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;
     padding-top: 100px;
 }
 
