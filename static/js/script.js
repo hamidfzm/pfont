@@ -70,14 +70,8 @@ $(function () {
         currLink.addClass('active');
     });
 
-    var dir = $('input[type=text]');
-    dir.keyup(function (e) {
-        if (isUnicode(dir.val())) {
-            $(this).css('direction', 'rtl');
-        }
-        else {
-            $(this).css('direction', 'ltr');
-        }
+    $('input[type=text]').keyup(function (e) {
+        $(this).css('direction', startsWithRTL($(this).val()) ? 'rtl' : 'ltr');
     });
 });
 
@@ -100,13 +94,8 @@ function onScroll(e) {
     });
 }
 
-function isUnicode(str) {
-    var letters = [];
-    for (var i = 0; i <= str.length; i++) {
-        letters[i] = str.substring((i - 1), i);
-        if (letters[i].charCodeAt() > 255) {
-            return true;
-        }
-    }
-    return false;
+function startsWithRTL(str) {
+    // This regex is brought from Google GWT (licensed under Apache 2.0), find FIRST_STRONG_IS_RTL_RE there
+    var regex = /^[^A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02B8\u0300-\u0590\u0800-\u1FFF\u2C00-\uFB1C\uFDFE-\uFE6F\uFEFD-\uFFFF]*[\u0591-\u07FF\uFB1D-\uFDFD\uFE70-\uFEFC]/;
+    return !!regex.exec(str);
 }
