@@ -20,6 +20,5 @@ class DonatorForm(Form):
 
     amount = StringField('Amount', [
         validators.DataRequired(message=u'این قسمت اجباری است و از اعداد انگلیسی استفاده کنید.'),
-        # validators.Regexp(regex='^[1-9][0-9]{3,}$')
-        validators.Regexp(regex='^[2-9][0-9]{3,}$', message=u'حداقل مبلغ پرداختی ۲۰۰۰ تومان است')
+        validators.Regexp(regex='^[1-9][0-9]{3,}$', message=u'حداقل مبلغ پرداختی ۱۰۰۰ تومان است.')
     ])
