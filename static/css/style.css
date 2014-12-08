@@ -278,7 +278,7 @@ section h1 {
     font-weight: 700;
 }
 
-#budget p {
+#budget p, #interview p {
     font-size: 30px;
     font-weight: 400;
 }
@@ -287,6 +287,10 @@ section h1 {
     color: #8dc63f;
     font-size: 45px; /* Approximation due to font substitution */
     font-weight: 600;
+}
+
+#interview p {
+    font-size: 18px;
 }
 
 #interview h3 {
