@@ -12,10 +12,10 @@ class Config:
     def __init__(self):
         pass
 
-    CAMPAIGN_START = datetime(2014, 10, 19, 0, 0)
+    CAMPAIGN_START = datetime(2014, 12, 9, 0, 0)
 
-    SECRET_KEY = os.environ.get('SECRET_KEY_PFONT')
-    WTF_CSRF_SECRET_KEY = os.environ.get('WTF_CSRF_SECRET_KEY_PFONT')
+    SECRET_KEY = os.environ.get('SECRET_KEY_PFONT', 'Development')
+    WTF_CSRF_SECRET_KEY = os.environ.get('WTF_CSRF_SECRET_KEY_PFONT', 'WTFDeveloper')
     MMERCHANT_ID = os.environ.get('MMERCHANT_ID_PFONT')
     ZARINPAL_WEBSERVICE = 'https://de.zarinpal.com/pg/services/WebGate/wsdl'
 
