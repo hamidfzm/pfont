@@ -20,8 +20,8 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .top-bottom-padding {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .botton-padding {
