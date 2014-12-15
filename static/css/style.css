@@ -19,6 +19,10 @@ input[type=number]::-webkit-inner-spin-button {
     padding: 0;
 }
 
+.top-padding {
+    padding: 25px 0;
+}
+
 .top-bottom-padding {
     padding-top: 10px;
     padding-bottom: 10px;
