@@ -12,7 +12,6 @@
 
     {# Bootstrap #}
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/navbar.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/hover.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
@@ -32,7 +31,7 @@
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     {# Include all compiled plugins (below), or include individual files as needed #}
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 
     {% block script %}
     {% endblock %}
@@ -40,37 +39,7 @@
 </head>
 <body>
 
-<section id="navbar">
-    <nav class="navbar navbar-fixed-top" role="navigation">
-        <div class="container" style="height: 100px">
-            <div class="navbar-header">
-                <img style="background-color: transparent; cursor: pointer"
-                     class="navbar-toggle"
-                     src="{{ url_for('static', filename='image/logo.png') }}"
-                     data-toggle="collapse"
-                     data-target="#navbar-brand-centered">
 
-                <div class="navbar-brand navbar-brand-centered hidden-xs">
-                    <a class="top-menu-item" href="#gallery">
-                        <img src="{{ url_for('static', filename='image/logo.png') }}">
-                    </a>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
-                <ul class="nav navbar-nav">
-                    <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
-                    <li><a class="top-menu-item" href="#supporters">حمایت‌کنندگان</a></li>
-                    <li><a class="top-menu-item" href="#support">حمایت</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="top-menu-item" href="#budget">بودجه</a></li>
-                    <li><a class="top-menu-item" href="#interview">مصاحبه</a></li>
-                    <li><a class="top-menu-item" href="#summery" data-targ>قلم چیست</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</section>
 
 {% block body %}
 {% endblock %}

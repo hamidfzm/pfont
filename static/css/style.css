@@ -1,6 +1,6 @@
 body {
     font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;
-    padding-top: 100px;
+    padding-top: 76px;
 }
 
 /* Hide spinners for Firefox */
@@ -17,6 +17,10 @@ input[type=number]::-webkit-inner-spin-button {
 
 .no-padding {
     padding: 0;
+}
+
+.top-padding {
+    padding: 25px 0;
 }
 
 .top-bottom-padding {
@@ -345,9 +349,9 @@ section h1 {
     display: inline-block;
     border-radius: 50%;
     margin: 3px;
-    width: 64px;
-    height: 64px;
-    padding: 12px;
+    width: 52px;
+    height: 52px;
+    padding: 5px;
     color: #000000;
     font-size: 30px;
     font-weight: 400;

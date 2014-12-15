@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='css/thanks.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/persian.min.js') }}"></script>
+    <script>
+        $(function () {
+            var sec = 60;
+
+            var timeoutDiv = $('#timeout');
+            timeoutDiv.html(persianJs(sec.toString()).englishNumber().toString());
+
+            var clock = setInterval(function () {
+                timeoutDiv.html(persianJs(sec.toString()).englishNumber().toString());
+                sec--;
+                if (sec==0){
+                    clearInterval(clock);
+                    window.location = '{{ url_for('main.index') }}';
+                }
+            }, 1000);
+        });
+
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container no-padding">
+        <div class="no-padding col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+            <div class="circle">
+                <div class="circle-inner">
+                    <span>از اینکه حمایت کردید، ممنونیم :))</span>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('main.index') }}">بازگشت به صفحه اصلی...
+                        <div id="timeout"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

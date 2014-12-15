@@ -62,7 +62,7 @@ $(function () {
         $('.top-menu-item.active').removeClass('active');
 
         $('html, body').stop().animate({
-            scrollTop: refElement.offset().top - 100
+            scrollTop: refElement.offset().top - 76
         }, 1000, 'swing', function () {
             $(document).on("scroll", onScroll);
         });

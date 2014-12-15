@@ -1,6 +1,46 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    <link href="{{ url_for('static', filename='css/navbar.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
+
 {% block body %}
+    <section id="navbar">
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <div class="container" style="height: 76px">
+                <div class="navbar-header">
+                    <img style="background-color: transparent; cursor: pointer"
+                         class="navbar-toggle"
+                         src="{{ url_for('static', filename='image/logo.png') }}"
+                         data-toggle="collapse"
+                         data-target="#navbar-brand-centered">
+
+                    <div class="navbar-brand navbar-brand-centered hidden-xs">
+                        <a class="top-menu-item" href="#gallery">
+                            <img src="{{ url_for('static', filename='image/logo.png') }}">
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
+                    <ul class="nav navbar-nav">
+                        <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
+                        <li><a class="top-menu-item" href="#supporters">حمایت‌کنندگان</a></li>
+                        <li><a class="top-menu-item" href="#support">حمایت</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="top-menu-item" href="#budget">بودجه</a></li>
+                        <li><a class="top-menu-item" href="#interview">مصاحبه</a></li>
+                        <li><a class="top-menu-item" href="#summery" data-targ>قلم چیست</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
     <section id="gallery" style="background-color: #252726">
         <div class="container-fluid">
             <div id="carousel-generic" class="carousel slide" data-ride="carousel">
@@ -58,7 +98,7 @@
             </a>
         </div>
 
-        <div class="col-md-6 no-padding col-md-push-6">
+        <div class="col-md-6 top-padding col-md-push-6">
             <div class="panel panel-default">
 
                 <div class="panel-body">
@@ -77,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 no-padding col-md-pull-6">
+        <div class="col-md-6 top-padding col-md-pull-6">
             <div class="panel panel-default">
 
                 <div class="panel-body">
@@ -112,7 +152,7 @@
         <div class="row">
             {% set percent = (donates / 10000000) * 100 %}
             <div class="col-lg-8 col-lg-offset-2" style="margin-top: 40px">
-                <div class="arrow_box">{{ persian(percent|round(2)) }}%</div>
+                <div class="arrow_box">{{ persian(percent|round(1)) }}%</div>
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ percent }}%;"></div>
                 </div>

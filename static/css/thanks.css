@@ -1,0 +1,60 @@
+.circle {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    width: 100%;
+    position: relative;
+    background: #8dc63f url('../image/logo-thanks.png') no-repeat center 30px;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.circle-inner {
+    position: absolute;
+    top: 150px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    text-align: center;
+}
+
+.circle-inner > span {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.circle-inner > a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    font-size: 12px;
+}
+
+@media (min-width: 500px) {
+    .circle-inner > span {
+        font-size: 40px;
+        font-weight: 400;
+    }
+
+    .circle-inner > a {
+        font-weight: 400;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .circle-inner > span {
+        font-size: 35px;
+        font-weight: 400;
+    }
+
+    .circle-inner > a {
+        font-weight: 400;
+        font-size: 15px;
+    }
+}
