@@ -132,12 +132,4 @@ def donate_callback(donate_id):
 
 @mod.route('thanks/')
 def thanks():
-    return render_template('email.html')
-
-
-@mod.route('contact/', methods=['POST'])
-def contact():
-    print request.form.keys()
-    print '------------------------------------'
-    print request.form.values()
-    return 'OK'
+    return render_template('thanks.html')
