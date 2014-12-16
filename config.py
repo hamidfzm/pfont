@@ -39,6 +39,8 @@ class Config:
     BABEL_DEFAULT_LOCALE = 'fa'
     BABEL_DEFAULT_TIMEZONE = 'UTC+03:30'
 
+    SITE_TITLE = u'کمپین قلم فارسی آزاد'
+
     MONGODB_SETTINGS = {'DB': 'pfont',
                     'HOST': '127.0.0.1',
                     'PORT': 27017}

@@ -53,6 +53,10 @@ $(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr('href'));
 
+        if (window.location.pathname != '/' && currLink.attr('href')=='#gallery'){
+            window.location = '/'
+        }
+
         if (!refElement.length) return;
 
         e.preventDefault();

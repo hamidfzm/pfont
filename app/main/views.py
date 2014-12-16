@@ -130,6 +130,11 @@ def donate_callback(donate_id):
         return abort(500)
 
 
+@mod.route('interview/')
+def interview():
+    return render_template('interview.html')
+
+
 @mod.route('thanks/')
 def thanks():
     return render_template('thanks.html')
