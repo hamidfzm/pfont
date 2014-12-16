@@ -274,7 +274,7 @@ section h1 {
     color: #ffffff;
 }
 
-#budget h3, p {
+#budget h3, #budget p {
     margin-bottom: 20px;
     margin-top: 20px;
     color: #808285;
