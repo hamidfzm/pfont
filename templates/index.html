@@ -9,37 +9,41 @@
 {% endblock %}
 
 {% block body %}
-    <section id="navbar">
-        <nav class="navbar navbar-fixed-top" role="navigation">
-            <div class="container" style="height: 76px">
-                <div class="navbar-header">
-                    <img style="background-color: transparent; cursor: pointer"
-                         class="navbar-toggle"
-                         src="{{ url_for('static', filename='image/logo.png') }}"
-                         data-toggle="collapse"
-                         data-target="#navbar-brand-centered">
+    {% block navbar %}
+        <section id="navbar">
+            <nav class="navbar navbar-fixed-top" role="navigation">
+                <div class="container" style="height: 76px">
+                    <div class="navbar-header">
+                        <img style="background-color: transparent; cursor: pointer"
+                             class="navbar-toggle"
+                             src="{{ url_for('static', filename='image/logo.png') }}"
+                             data-toggle="collapse"
+                             data-target="#navbar-brand-centered">
 
-                    <div class="navbar-brand navbar-brand-centered hidden-xs">
-                        <a class="top-menu-item" href="#gallery">
-                            <img src="{{ url_for('static', filename='image/logo.png') }}">
-                        </a>
+                        <div class="navbar-brand navbar-brand-centered hidden-xs">
+                            <a class="top-menu-item" href="#gallery">
+                                <img src="{{ url_for('static', filename='image/logo.png') }}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
+                        {% block navitems %}
+                            <ul class="nav navbar-nav">
+                                <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
+                                <li><a class="top-menu-item" href="#supporters">حمایت‌کنندگان</a></li>
+                                <li><a class="top-menu-item" href="#support">حمایت</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a class="top-menu-item" href="#budget">بودجه</a></li>
+                                <li><a class="top-menu-item" href="#interview">مصاحبه</a></li>
+                                <li><a class="top-menu-item" href="#summery" data-targ>قلم چیست</a></li>
+                            </ul>
+                        {% endblock %}
                     </div>
                 </div>
-                <div class="collapse navbar-collapse nav-bg-color " id="navbar-brand-centered">
-                    <ul class="nav navbar-nav">
-                        <li><a class="top-menu-item" href="#footer">تماس با ما</a></li>
-                        <li><a class="top-menu-item" href="#supporters">حمایت‌کنندگان</a></li>
-                        <li><a class="top-menu-item" href="#support">حمایت</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="top-menu-item" href="#budget">بودجه</a></li>
-                        <li><a class="top-menu-item" href="#interview">مصاحبه</a></li>
-                        <li><a class="top-menu-item" href="#summery" data-targ>قلم چیست</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
+            </nav>
+        </section>
+    {% endblock %}
 
     <section id="gallery" style="background-color: #252726">
         <div class="container-fluid">
@@ -142,7 +146,7 @@
 
             {% include 'interview_intro.html' %}
 
-            <a href="#" class="btn btn-line pull-left">ادامه مطلب</a>
+            <a href="{{ url_for('main.interview') }}" class="btn btn-line pull-left">ادامه مطلب</a>
         </div>
     </section>
 
@@ -199,24 +203,26 @@
         </div>
     </section>
 
-    <section id="footer" class="col-lg-12 col-md-12 col-sm-12 top-bottom-padding text-center" style="background-color: #8dc63f">
-        <a class="top-menu-item btn-block top-bottom-padding" href="#gallery"><img src="{{ url_for('static', filename='image/logo-footer.png') }}"></a>
+    {% block footer %}
+        <section id="footer" class="col-lg-12 col-md-12 col-sm-12 top-bottom-padding text-center" style="background-color: #8dc63f">
+            <a class="top-menu-item btn-block top-bottom-padding" href="#gallery"><img src="{{ url_for('static', filename='image/logo-footer.png') }}"></a>
 
-        <div style="direction: ltr">
-            <a href="https://twitter.com/pfont_ir" class="social" target="_blank"><span class="fa fa-twitter"></span></a>
-            <a href="https://www.facebook.com/pfont.ir" class="social" target="_blank"><span class="fa fa-facebook"></span></a>
-            <a href="https://plus.google.com/+PfontIr" class="social" target="_blank"><span class="fa fa-google-plus"></span></a>
-            <a href="mailto:contact@pfont.ir" class="social" target="_top"><span class="fa fa-envelope-o"></span></a>
-        </div>
+            <div style="direction: ltr">
+                <a href="https://twitter.com/pfont_ir" class="social" target="_blank"><span class="fa fa-twitter"></span></a>
+                <a href="https://www.facebook.com/pfont.ir" class="social" target="_blank"><span class="fa fa-facebook"></span></a>
+                <a href="https://plus.google.com/+PfontIr" class="social" target="_blank"><span class="fa fa-google-plus"></span></a>
+                <a href="mailto:contact@pfont.ir" class="social" target="_top"><span class="fa fa-envelope-o"></span></a>
+            </div>
 
-        {#        <div id="zarinpal" class="center-block">#}
-        {#            <script type="text/javascript" src="http://www.zarinpal.com/webservice/TrustCode"></script>#}
-        {#            <noscript>#}
-        {#                <a href="https://www.zarinpal.com/users/receptive_websites">ZarinPal Receptive Websites</a>#}
-        {#            </noscript>#}
-        {#        </div>#}
+            {#        <div id="zarinpal" class="center-block">#}
+            {#            <script type="text/javascript" src="http://www.zarinpal.com/webservice/TrustCode"></script>#}
+            {#            <noscript>#}
+            {#                <a href="https://www.zarinpal.com/users/receptive_websites">ZarinPal Receptive Websites</a>#}
+            {#            </noscript>#}
+            {#        </div>#}
 
 
-    </section>
+        </section>
+    {% endblock %}
 
 {% endblock %}
