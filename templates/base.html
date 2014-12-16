@@ -8,7 +8,7 @@
     <meta name="keywords" content="Libre font,persian, persian font, opensource, persian opensource font, free font, free">
     <meta name="author" content="Hamid FzM (hamidfzm@gmail.com)">
 
-    <title>کمپین قلم فارسی آزاد</title>
+    <title>{{ config['SITE_TITLE'] }}{% if g.title %} - {{ g.title }}{% endif %}</title>
 
     {# Bootstrap #}
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
@@ -42,7 +42,6 @@
       ga('send', 'pageview');
 
     </script>
-
     {% block script %}
     {% endblock %}
 
