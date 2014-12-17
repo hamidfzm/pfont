@@ -15,16 +15,19 @@ border-top: #8dc63f solid 20px;">
         font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;
         background: url('{{ url_for('static', filename='image/blabla.png', _external=True) }}') no-repeat center;
         padding: 20px;">
-    <h1 style="font-weight: 400; font-size: 36px">از حمایت شما ممنویم :)</h1>
-    <dl style="font-size: 25px; font-weight: 400; color: rgba(0, 0, 0, 0.5);">
+    <h1 style="font-weight: 400; font-size: 26px">از حمایت شما ممنویم :)</h1>
+    <dl style="font-size: 18px; font-weight: 400; color: rgba(0, 0, 0, 0.5);">
         <dt>اهدا کننده:</dt>
-        <dd>{{ donator.name }}</dd>
+        <dt>{{ donator.name }}</dt>
+        </br>
         <dt>مبلغ هدیه:</dt>
-        <dd>{{ persian(donate.amount) }} تومان</dd>
+        <dt>{{ persian(donate.amount) }} تومان</dt>
+        </br>
         <dt>تاریخ:</dt>
-        <dd>{{ persian(time(donate.date)) }} - {{ persian(jalali(donate.date)) }}</dd>
+        <dt>{{ persian(time(donate.date)) }} - {{ persian(jalali(donate.date)) }}</dt>
+        </br>
         <dt>شماره پیگیری:</dt>
-        <dd>{{ donate.RefID }}</dd>
+        <dt>{{ donate.RefID }}</dt>
     </dl>
 </div>
 
