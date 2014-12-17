@@ -13,14 +13,14 @@ border-top: #8dc63f solid 20px;">
 
 <div style="
         font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;
-        background: url('{{ url_for('static', filename='image/blabla.png') }}') no-repeat center;
+        background: url('{{ url_for('static', filename='image/blabla.png', _external=True) }}') no-repeat center;
         padding: 20px;">
     <h1 style="font-weight: 400; font-size: 36px">از حمایت شما ممنویم :)</h1>
     <dl style="font-size: 25px; font-weight: 400; color: rgba(0, 0, 0, 0.5);">
         <dt>اهدا کننده:</dt>
         <dd>{{ donator.name }}</dd>
         <dt>مبلغ هدیه:</dt>
-        <dd>{{ persian(donate.amount) }}</dd>
+        <dd>{{ persian(donate.amount) }} تومان</dd>
         <dt>تاریخ:</dt>
         <dd>{{ persian(time(donate.date)) }} - {{ persian(jalali(donate.date)) }}</dd>
         <dt>شماره پیگیری:</dt>
@@ -30,7 +30,7 @@ border-top: #8dc63f solid 20px;">
 
 <div style="
         width: 100%;
-        background: #8dc63f url('{{ url_for('static', filename='image/logo_inverted.png') }}') no-repeat right 30px bottom 5px;
+        background: #8dc63f url('{{ url_for('static', filename='image/logo_inverted.png', _external=True) }}') no-repeat right 30px bottom 5px;
         height: 73px;
         text-align: left;
         direction: ltr;
