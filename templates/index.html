@@ -112,7 +112,7 @@
                             <p>{% include 'font_why.html' %}</p>
                         </div>
                         <div class="tab-pane fade svn text-center" id="svn">
-                            <img src="{{ url_for('static', filename='image/why.png') }}">
+                            <img class="center-block" src="{{ url_for('static', filename='image/why.png') }}">
 
                             <h1>ویژگی‌های قلم نهایی</h1>
                         </div>
@@ -126,7 +126,7 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active home justify" id="home">
-                            <img src="{{ url_for('static', filename='image/why.png') }}">
+                            <img class="center-block" src="{{ url_for('static', filename='image/why.png') }}">
                             <p>{% include 'font_why_2.html' %}</p>
                         </div>
                         <div class="tab-pane fade svn" id="svn">
@@ -169,7 +169,7 @@
                 <p>تعداد حامیان (نفر)</p>
             </div>
             <div class="col-lg-4 col-md-4">
-                <h3>{{ persian(donates) }}</h3>
+                <h3>{{ persian(format(donates, ',d')) }}</h3>
 
                 <p>میزان حمایت (تومان)</p>
             </div>

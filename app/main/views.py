@@ -97,7 +97,9 @@ def donate_callback(donate_id):
                 donator_obj.save()
 
                 # TODO say thank you to user and send donate id and some other staff
-                mandrillemail.send(u'کمپین قلم فارسی آزاد', donator_obj.email, donator_obj.nickname, render_template('email.html'))
+                mandrillemail.send(u'کمپین قلم فارسی آزاد', donator_obj.email, donator_obj.nickname, render_template('email.html',
+                                                                                                                     donator=donator_obj,
+                                                                                                                     donate=donate_obj))
 
                 return redirect(url_for('main.thanks'))
 
