@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head lang="fa">
+<head lang="fa" dir="rtl">
     <meta charset="UTF-8">
     <title>کمپین قلم فارسی آزاد</title>
-    <style>
-        @font-face {
-            font-family: 'Sego';
-            src: url('{{ url_for('static', filename='fonts/segoeui.eot', _external=True) }}?#') format('eot'),
-            url({{ url_for('static', filename='fonts/segoeui.woff', _external=True) }}) format('woff'),
-            url({{ url_for('static', filename='fonts/segoeui.ttf', _external=True) }}) format('truetype');
-        }
-    </style>
 </head>
 <body style="
+direction: rtl;
 text-align: center;
 display: block;
 margin: 0 auto 0 auto ;
-background-color: #000000; ">
+border-top: #8dc63f solid 20px;">
 
-<img src="{{ url_for('static', filename='image/logo.png', _external=True) }}"
-     style="max-width: 100%;
-     padding: 10px;
-     background-color: #ffffff;
-     border-bottom-left-radius: 65px;
-     border-bottom-right-radius: 65px">
-
-<div style="background-color: #8dc63f;
-margin-top: -45px; padding: 80px 10px 25px 10px;
-font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;
-color: #ffffff;">
-
-    <h1>از حمایت شما متشکریم</h1>
-
-    <p style="font-size: 20px">به زودی شما را در جریان اخبار این کمپین می‌گذاریم</p>
-    <br>
-    <br>
-    <a href="{{ url_for('main.index', _external=True) }}">{{ url_for('main.index', _external=True) }}</a>
+<div style="
+        font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;
+        background: url('{{ url_for('static', filename='image/blabla.png') }}') no-repeat center;
+        padding: 20px;">
+    <h1 style="font-weight: 400; font-size: 36px">از حمایت شما ممنویم :)</h1>
+    <dl style="font-size: 25px; font-weight: 400; color: rgba(0, 0, 0, 0.5);">
+        <dt>اهدا کننده:</dt>
+        <dd>{{ donator.name }}</dd>
+        <dt>مبلغ هدیه:</dt>
+        <dd>{{ persian(donate.amount) }}</dd>
+        <dt>تاریخ:</dt>
+        <dd>{{ persian(time(donate.date)) }} - {{ persian(jalali(donate.date)) }}</dd>
+        <dt>شماره پیگیری:</dt>
+        <dd>{{ donate.RefID }}</dd>
+    </dl>
 </div>
+
+<div style="
+        width: 100%;
+        background: #8dc63f url('{{ url_for('static', filename='image/logo_inverted.png') }}') no-repeat right 30px bottom 5px;
+        height: 73px;
+        text-align: left;
+        direction: ltr;
+        display: table;
+        "
+        >
+    <a style="
+    padding-left: 10px;
+    display:table-cell;
+    vertical-align: middle;
+    margin-left: 20px;
+    text-decoration: none;"
+       href="{{ url_for('main.index', _external=True) }}">{{ url_for('main.index', _external=True) }}</a>
+
+</div>
+
+{##}
+{#<div style="background-color: #8dc63f;#}
+{#margin-top: -45px; padding: 80px 10px 25px 10px;#}
+{#font-family: 'Iranian Sans', 'DejaVu Sans', 'Noto Kufi Arabic', 'Droid Arabic Kufi', 'Segoe UI', Tahoma, Helvetica, sans-serif;#}
+{#color: #ffffff;">#}
+{##}
+{#    <h1>از حمایت شما متشکریم</h1>#}
+{##}
+{#    <p style="font-size: 20px">به زودی شما را در جریان اخبار این کمپین می‌گذاریم</p>#}
+{#    <br>#}
+{#    <br>#}
+{#    <a href="{{ url_for('main.index', _external=True) }}">{{ url_for('main.index', _external=True) }}</a>#}
+{#</div>#}
 
 </body>
 </html>
