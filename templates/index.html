@@ -50,10 +50,10 @@
             <div id="carousel-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-generic" data-slide-to="3" class="active"></li>
-                    <li data-target="#carousel-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-generic" data-slide-to="0"></li>
+                    <li data-target="#carousel-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-generic" data-slide-to="4"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
@@ -169,7 +169,7 @@
                 <p>تعداد حامیان (نفر)</p>
             </div>
             <div class="col-lg-4 col-md-4">
-                <h3>{{ persian(format(donates, ',d')) }}</h3>
+                <h3>{{ persian(format(donates, ',d'))|replace(',','‫٬‬‎') }}</h3>
 
                 <p>میزان حمایت (تومان)</p>
             </div>
