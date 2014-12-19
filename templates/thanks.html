@@ -8,7 +8,7 @@
     <script src="{{ url_for('static', filename='js/persian.min.js') }}"></script>
     <script>
         $(function () {
-            var sec = 60;
+            var sec = 10;
 
             var timeoutDiv = $('#timeout');
             timeoutDiv.html(persianJs(sec.toString()).englishNumber().toString());
@@ -31,7 +31,7 @@
         <div class="no-padding col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
             <div class="circle">
                 <div class="circle-inner">
-                    <span>از اینکه حمایت کردید، ممنونیم :))</span>
+                    <span>از اینکه حمایت کردید، ممنونیم :)</span>
                     <br>
                     <br>
                     <a href="{{ url_for('main.index') }}">بازگشت به صفحه اصلی...
