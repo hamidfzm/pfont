@@ -12,7 +12,7 @@ class Config:
     def __init__(self):
         pass
 
-    CAMPAIGN_START = datetime(2014, 12, 9, 0, 0)
+    CAMPAIGN_START = datetime(2014, 12, 15, 0, 0)
 
     SECRET_KEY = os.environ.get('SECRET_KEY_PFONT', 'Development')
     WTF_CSRF_SECRET_KEY = os.environ.get('WTF_CSRF_SECRET_KEY_PFONT', 'WTFDeveloper')
