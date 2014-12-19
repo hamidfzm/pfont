@@ -53,7 +53,7 @@
                     <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel-generic" data-slide-to="1"></li>
                     <li data-target="#carousel-generic" data-slide-to="2"></li>
-                    <li data-target="#carousel-generic" data-slide-to="4"></li>
+                    <li data-target="#carousel-generic" data-slide-to="3"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
@@ -201,7 +201,14 @@
             {% for donator in donatores %}
                 <img src="{{ donator.avatar }}" class="avatar" title="{{ donator.name }}">
             {% endfor %}
+
+        <br>
+        <br>
+        <br>
+        <p>برای نمایش صحیح عکس خود در <a href="https://gravatar.com" target="_blank">Gravatar</a> ثبت نام کنید.</p>
         </div>
+
+
     </section>
 
     {% block footer %}
@@ -213,6 +220,7 @@
                 <a href="https://www.facebook.com/pfont.ir" class="social" target="_blank"><span class="fa fa-facebook"></span></a>
                 <a href="https://plus.google.com/+PfontIr" class="social" target="_blank"><span class="fa fa-google-plus"></span></a>
                 <a href="mailto:contact@pfont.ir" class="social" target="_top"><span class="fa fa-envelope-o"></span></a>
+                <a href="https://github.com/hamidfzm/pfont" title="سورس باز سایت کمیپین قلم فارسی آزاد" class="social" target="_blank"><span class="fa fa-github"></span></a>
             </div>
 
             {#        <div id="zarinpal" class="center-block">#}
