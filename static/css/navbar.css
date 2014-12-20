@@ -138,10 +138,10 @@
 }
 
 .navbar-toggle {
-    height: 76px;
+    height: 59px;
     position: relative;
     float: right;
     padding: 0;
-    margin: 0 15px 0 0;
+    margin: 10px 26px 0 0;
     border: none;
 }
