@@ -24,8 +24,12 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .top-bottom-padding {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#footer .top-bottom-padding img {
+    width: 150px;
 }
 
 .botton-padding {
@@ -123,6 +127,7 @@ input[type=number]::-webkit-inner-spin-button {
     z-index: 2;
     position: relative;
     border: 2px solid #8dc63f;
+    color: #8dc63f;
 }
 
 .panel-heading.active.right {
@@ -134,10 +139,10 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .btn-line {
-    color: #939598;
+    color: #8dc63f;
     font-size: 16px;
     font-weight: 400;
-    padding: 5px 40px 5px 40px;
+    padding: 8px 40px 8px 40px;
     border-radius: 8px;
     border: 2px solid #8dc63f;
     background-color: transparent;
@@ -145,9 +150,9 @@ input[type=number]::-webkit-inner-spin-button {
 
 .btn-green {
     color: #ffffff;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
-    padding: 5px 50px 5px 50px;
+    padding: 9px 50px 9px 50px;
     border-radius: 8px;
     background-color: #8dc63f;
 }
@@ -159,10 +164,11 @@ input[type=number]::-webkit-inner-spin-button {
 
 .form-input {
     border-color: #ffffff;
-    color: #ffffff;
+    color: #FFFFFF;
+    border: 1px solid rgba(249, 249, 249, 0.9);
     background-color: transparent;
-    border-radius: 8px;
-    padding: 6px 12px;
+    border-radius: 5px;
+    padding: 8px 12px;
     white-space: nowrap;
     vertical-align: middle;
     direction: ltr;
@@ -175,6 +181,8 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
     box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #729D37;
 }
 
 .form-input::-webkit-input-placeholder {
@@ -200,9 +208,9 @@ input[type=number]::-webkit-inner-spin-button {
 .arrow_box {
     min-width: 100px;
     position: relative;
-    background: #808285;
+    background: #5C9137;
     color: #ffffff;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 400;
     display: inline-block;
     margin-bottom: 35px;
@@ -219,20 +227,20 @@ input[type=number]::-webkit-inner-spin-button {
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-top-color: #808285;
-    border-width: 26px;
-    margin-left: -26px;
+    border-top-color: #5C9137;
+    border-width: 15px;
+    margin-left: -15px;
 }
 
 .progress {
     height: 35px;
     border-radius: 35px;
-    background-color: #f1f2f2;
+    background-color: rgba(241, 242, 242, 0.26);
     border: 2px solid #8dc63f;
 }
 
 .progress-bar {
-    float: right;
+    float: left;
     background-color: #8dc63f;
     box-shadow: none;
     -webkit-box-shadow: none;
@@ -266,8 +274,9 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 section h1 {
-    font-size: 38px;
+    font-size: 24px;
     font-weight: 500;
+    margin-top: 30px;
 }
 
 #support h1 {
@@ -276,31 +285,33 @@ section h1 {
 
 #budget h3, #budget p {
     margin-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
     color: #808285;
-    font-size: 62px;
-    font-weight: 700;
+    font-size: 55px;
+    font-weight: 500;
 }
 
 #budget p, #interview p {
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 400;
+    margin-bottom: 25px;
 }
 
 #interview h1 {
     color: #8dc63f;
-    font-size: 38px; /* Approximation due to font substitution */
+    font-size: 35px; /* Approximation due to font substitution */
     font-weight: 500;
 }
 
 #interview p {
     font-size: 14px;
+    line-height: 1.8em;
 }
 
 #interview h3 {
     color: #939598;
     font-size: 18px; /* Approximation due to font substitution */
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 
 #support span.fa-spinner {
@@ -329,7 +340,7 @@ section h1 {
 
 @media (min-width: 992px) {
     .damon {
-        padding: 50px 0 25px 50px;
+        padding: 50px 0 35px 50px;
     }
 }
 
@@ -349,16 +360,16 @@ section h1 {
     display: inline-block;
     border-radius: 50%;
     margin: 3px;
-    width: 52px;
-    height: 52px;
+    width: 35px;
+    height: 35px;
     padding: 5px;
     color: #000000;
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 400;
 }
 
 .social:hover, .social:focus {
-    background-color: #000000;
+    background-color: #495E2D;
     color: #8dc63f;
 }
 
@@ -366,3 +377,31 @@ section h1 {
 /*width: 115px;*/
 /*padding-top: 10px;*/
 /*}*/
+
+#summery {
+    padding: 60px 25px !important;
+}
+
+#home img {
+    margin: 40px auto;
+    
+}
+
+#supporters h1 {
+    margin-bottom: 30px !important;
+}
+
+#footer {
+    padding: 0 !important;
+    
+}
+
+#footer > div {
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.navbar-fixed-top {
+    border-bottom: none;
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,0.25);
+}
