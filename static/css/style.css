@@ -21,7 +21,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .top-padding {
-    padding: 25px 0;
+    padding: 25px 0px 0px 0px;
 }
 
 .top-bottom-padding {
@@ -103,11 +103,11 @@ input[type=number]::-webkit-inner-spin-button {
     color: #58595b;
     text-decoration: none;
 }
-
+/* comment by behdad
 .panel-body {
     padding: 2px 25px 25px 25px;
 }
-
+*/
 .panel-default > .panel-heading {
     border-radius: 0;
     border-color: #ddd;
@@ -405,4 +405,10 @@ section h1 {
 .navbar-fixed-top {
     border-bottom: none;
     box-shadow: 0 2px 2px -1px rgba(0,0,0,0.25);
+}
+
+
+/* add by behdad */
+.panel {
+    margin-bottom: 0px;
 }

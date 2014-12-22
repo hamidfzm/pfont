@@ -109,7 +109,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade in active home justify" id="home">
                             <h1>چرا به قلم نیاز داریم؟</h1>
-                            <p>{% include 'font_why.html' %}</p>
+                            {% include 'font_why.html' %}
                         </div>
                         <div class="tab-pane fade svn text-center" id="svn">
                             <img class="center-block" src="{{ url_for('static', filename='image/why.png') }}">
@@ -127,7 +127,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade in active home justify" id="home">
                             <img class="center-block" src="{{ url_for('static', filename='image/why.png') }}">
-                            <p>{% include 'font_why_2.html' %}</p>
+                            {% include 'font_why_2.html' %}
                         </div>
                         <div class="tab-pane fade svn" id="svn">
                             {% include 'font_features.html' %}
