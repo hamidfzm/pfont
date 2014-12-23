@@ -399,7 +399,7 @@ section h1 {
 
 #footer > div {
     margin-top: -20px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .navbar-fixed-top {
