@@ -12,6 +12,7 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
+                    <th class="text-right">ردیف</th>
                     <th class="text-right">نام پرداخت کننده</th>
                     <th class="text-right">آدرس پست الکترونیک</th>
                     <th class="text-right">مجموع هدایای پرداختی</th>
@@ -20,6 +21,7 @@
                 <tbody>
                 {% for donator in donators %}
                     <tr>
+                        <td>{{ persian(loop.index) }}</td>
                         <td>{{ donator.nickname }}</td>
                         <td>{{ donator.email }}</td>
                         <td>{{ persian(donator.donates) }}</td>
