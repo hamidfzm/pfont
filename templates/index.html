@@ -176,7 +176,7 @@
             <div class="col-lg-4 col-md-4">
                 <h3>{{ persian(days_passed) }}</h3>
 
-                <p>مدت زمان (روز گذشته)</p>
+                <p>مدت زمان گذشته (روز)</p>
             </div>
         </div>
 
@@ -201,11 +201,12 @@
             {% for donator in donatores %}
                 <img src="{{ donator.avatar }}" class="avatar" title="{{ donator.name }}">
             {% endfor %}
-
+            
+            <br>
+            <p class="top-bottom-padding">برای نمایش صحیح عکس خود در <a href="https://gravatar.com" target="_blank" style="color: #5C9137">Gravatar</a> ثبت نام کنید</p>
         </div>
 
-        <br>
-        <p class="top-bottom-padding">برای نمایش صحیح عکس خود در <a href="https://gravatar.com" target="_blank" style="color: #5C9137">Gravatar</a> ثبت نام کنید</p>
+      
 
 
     </section>
