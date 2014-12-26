@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    {% block navbar %}
+        {% block navitems %}
+        {% endblock %}
+        {{ super() }}
+    {% endblock %}
+
+    <section id="dontors" class="container" style="margin-top: 50px">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th class="text-right">ردیف</th>
+                    <th class="text-right">نام پرداخت کننده</th>
+                    <th class="text-right">آدرس پست الکترونیک</th>
+                    <th class="text-right">مجموع هدایای پرداختی</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for donator in donators %}
+                    <tr>
+                        <td>{{ persian(loop.index) }}</td>
+                        <td>{{ donator.nickname }}</td>
+                        <td>{{ donator.email }}</td>
+                        <td>{{ persian(donator.donates) }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    {% block footer %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}
+

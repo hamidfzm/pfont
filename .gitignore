@@ -50,3 +50,5 @@ env/
 
 # vim
 *.swp
+
+.password

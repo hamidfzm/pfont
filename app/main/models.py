@@ -34,9 +34,13 @@ class Donator(Document):
         #                          'default': url_for('static', filename='image/avatar.png', _external=True),
         #                          'hash': b64encode(self.email)}))
 
-    def commit(self):
+    def save(self, *args, **kwargs):
         self.md5 = md5(self.email).hexdigest()
-        self.save()
+        super(Donator, self).save(*args, **kwargs)
+
+    @property
+    def donates(self):
+        return int(Donate.objects(confirm=True, donator=self).sum('amount'))
 
     def __repr__(self):
         return '<Donator %r>' % self.email

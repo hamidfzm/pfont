@@ -47,7 +47,7 @@ def donate():
             except (ValidationError, DoesNotExist):
                 donator_obj = Donator(email=form.email.data.lower(), nickname=form.nickname.data)
 
-            donator_obj.commit()
+            donator_obj.save()
 
             donate_obj = Donate(amount=form.amount.data, donator=donator_obj)
 
@@ -140,3 +140,8 @@ def interview():
 @mod.route('thanks/')
 def thanks():
     return render_template('thanks.html')
+
+
+@mod.route('donators/')
+def donators():
+    return render_template('donator_table.html', donators=Donator.objects(donated=True))
