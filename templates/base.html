@@ -4,9 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="{{ url_for('static', filename='image/og-logo.jpg', _external=True) }}"/>
+    <meta property="og:title" content="کمپین قلم فارسی آزاد"/>
+    <meta property="og:site_name" content="P Font"/>
+    <meta property="og:type"   content="website" />
+
     <meta name="description" content="Campaign for opensource persian font">
     <meta name="keywords" content="Libre font,persian, persian font, opensource, persian opensource font, free font, free">
     <meta name="author" content="Hamid FzM (hamidfzm@gmail.com)">
+
 
     <title>{{ config['SITE_TITLE'] }}{% if g.title %} - {{ g.title }}{% endif %}</title>
 
