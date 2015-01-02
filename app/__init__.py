@@ -3,24 +3,18 @@ from htmlmin.main import minify
 
 # import flask
 from flask import Flask, request, render_template
-# from flask.ext.bootstrap import Bootstrap
 from flask.ext.babel import Babel
-from flask.ext.mail import Mail
 from flask.ext.moment import Moment
 from flask.ext.mongoengine import MongoEngine
 
 # import project
-from app.utilis.sms import SMS
 from app.utilis.mandrillemail import MandrillEmail
 from config import config
 
 
-# bootstrap = Bootstrap()
-# mail = Mail()
 moment = Moment()
 babel = Babel()
 db = MongoEngine()
-# sms = SMS()
 mandrillemail = MandrillEmail()
 
 
