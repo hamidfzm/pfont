@@ -82,5 +82,14 @@ def create_app(config_name):
     if app.config['MINIFY_PAGE']:
         app.after_request(response_minify)
 
+    # blueprint with error handlers
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return '404 - Page Not Found', 404
+
+    @app.errorhandler(500)
+    def internal_server_error(e):
+        return '500 - Internal Server Error', 500
+
     # attach routes and custom error pages here
     return app
