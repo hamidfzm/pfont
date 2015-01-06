@@ -37,8 +37,10 @@ def create_app(config_name):
     # app.session_interface = MongoEngineSessionInterface(db)
 
     # Registering blue prints
-    from main import mod
-    app.register_blueprint(mod)
+
+    for blueprint in app.config['INSTALLED_BLUEPRINTS']:
+            bp = __import__('app.%s' % blueprint, fromlist=[blueprint])
+            app.register_blueprint(bp.mod)
 
     # Registering custom template tags
     from app.utilis.template_tags import tags
