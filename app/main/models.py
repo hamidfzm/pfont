@@ -2,13 +2,13 @@
 
 # python import
 from hashlib import md5
-from base64 import b64encode
+# from base64 import b64encode
 from datetime import datetime
 from mongoengine import Document, StringField, EmailField, IntField, DateTimeField, ReferenceField, BooleanField
-from urllib import urlencode
+# from urllib import urlencode
 
 # flask import
-from flask import url_for
+# from flask import url_for
 
 
 class Donator(Document):

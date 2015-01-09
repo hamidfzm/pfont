@@ -27,7 +27,7 @@ def index():
     return render_template('index.html',
                            form=DonatorForm(),
                            donatores=donator_obj,
-                           donators_count=len(donator_obj),
+                           donators_count=donator_obj.count(),
                            days_passed=(datetime.now() - current_app.config['CAMPAIGN_START']).days,
                            donates=int(Donate.objects(confirm=True).sum('amount')))
 

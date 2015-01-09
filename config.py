@@ -36,6 +36,8 @@ class Config:
         'fa': u'فارسی'
     }
 
+    INSTALLED_BLUEPRINTS = ['main', 'api']
+
     BABEL_DEFAULT_LOCALE = 'fa'
     BABEL_DEFAULT_TIMEZONE = 'UTC+03:30'
 
